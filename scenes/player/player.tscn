@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
-size = Vector2(128, 128)
+size = Vector2(80, 80)
 
 [node name="Player" type="CharacterBody2D" unique_id=872593450]
 script = ExtResource("1_dovo2")
