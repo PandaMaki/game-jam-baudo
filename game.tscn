@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://4dmik4ep8dj4"]
+
+[sub_resource type="Gradient" id="Gradient_mwb40"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_mwb40")
+
+[node name="game" type="Node2D" unique_id=349331373]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177255385]
+position = Vector2(574.5, 324.375)
+scale = Vector2(4.4960938, 649.25)
+texture = SubResource("GradientTexture1D_ssvtb")
