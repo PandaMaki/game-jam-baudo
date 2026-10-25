@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://b6tbwa2e218on" path="res://assets/tiles/prototype/Tileset_prototype.png" id="1_135xi"]
 [ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="2_klkcg"]
-[ext_resource type="PackedScene" uid="uid://cpqx0lvrw1upx" path="res://scenes/ennemi/spawner/spawner_mob.tscn" id="3_vstqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jirdo"]
 texture = ExtResource("1_135xi")
@@ -40,9 +39,6 @@ tile_set = SubResource("TileSet_clr57")
 
 [node name="Player" parent="." unique_id=872593450 instance=ExtResource("2_klkcg")]
 position = Vector2(32, 32)
-
-[node name="spawner_mob" parent="." unique_id=1146077950 instance=ExtResource("3_vstqu")]
-position = Vector2(873, 255)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1992768738]
 editor_only = true
