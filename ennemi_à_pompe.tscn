@@ -36,7 +36,7 @@ shape = SubResource("RectangleShape2D_ssvtb")
 position = Vector2(2, -8.5)
 shape = SubResource("RectangleShape2D_ux1y0")
 
-[node name="visée" type="RayCast2D" parent="." unique_id=1691809256]
+[node name="visée" type="RayCast2D" parent="." unique_id=1691809256 groups=["ennemi"]]
 target_position = Vector2(150, 0)
 
 [node name="Timer" type="Timer" parent="." unique_id=2145972395]
