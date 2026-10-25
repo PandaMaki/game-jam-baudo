@@ -11,6 +11,7 @@ gradient = SubResource("Gradient_yaqcr")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lvxji"]
 
 [node name="balle_ennemi" type="Area2D" unique_id=293264298]
+collision_layer = 16
 script = ExtResource("1_3qbxq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1265141795]

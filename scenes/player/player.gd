@@ -38,3 +38,6 @@ func essayer_deplacer(dir: Vector2) -> void:
 	await tween.finished
 	# Animation finie : le perso peut de nouveau bouger
 	en_mouvement = false
+	
+func mecanique():
+	pass

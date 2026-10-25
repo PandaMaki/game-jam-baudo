@@ -19,8 +19,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if $visée.is_colliding():
 		var touche = $visée.get_collider()
-		# On vérifie que l'objet existe encore avant de l'utiliser
 		if is_instance_valid(touche) and touche.is_in_group("player") and peut_tirer:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.y = move_toward(velocity.y, 0, SPEED)
 			tirer()
 			peut_tirer = false
 			$Timer.start()
@@ -46,14 +47,16 @@ func die():
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	cible = body
+
 func tirer():
 	var new_ball = balle.instantiate()
-	
+	var direction = $visée
 	new_ball.global_position = global_position
-	new_ball.rotation = rotation
+	var cible2 = direction.to_global(direction.target_position)
+	new_ball.direction = (cible2 - direction.global_position).normalized()
+	new_ball.rotation = new_ball.direction.angle()
 	
 	get_tree().current_scene.add_child(new_ball)
-
 
 func _on_timer_timeout() -> void:
 	peut_tirer = true
