@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://4dmik4ep8dj4"]
 
+[ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="1_80nbo"]
+
 [sub_resource type="Gradient" id="Gradient_mwb40"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
 
@@ -12,3 +14,5 @@ gradient = SubResource("Gradient_mwb40")
 position = Vector2(574.5, 324.375)
 scale = Vector2(4.4960938, 649.25)
 texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="Player" parent="." unique_id=872593450 instance=ExtResource("1_80nbo")]
