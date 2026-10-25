@@ -13,6 +13,6 @@ func tirer():
 	
 	get_tree().current_scene.add_child(new_ball)
 	
-func _unhandled_input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent):
 	if Input.is_action_just_pressed("shoot"):
 		tirer()
