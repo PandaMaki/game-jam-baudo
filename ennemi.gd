@@ -14,6 +14,10 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+	if $visée.is_colliding():
+		var touche = $visée.get_collider()
+		if touche.is_in_group("player"):
+			pass
 	if cible != null:
 		look_at(cible.global_position)
 		$NavigationAgent2D.target_position = cible.global_position
