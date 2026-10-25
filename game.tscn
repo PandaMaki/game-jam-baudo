@@ -29,7 +29,7 @@ texture = SubResource("GradientTexture1D_ssvtb")
 navigation_polygon = SubResource("NavigationPolygon_ssvtb")
 
 [node name="ennemi" parent="." unique_id=504666815 instance=ExtResource("2_e2o6t")]
-position = Vector2(941, 309)
+position = Vector2(907, 306)
 
 [node name="spawner_mob" parent="." unique_id=1146077950 instance=ExtResource("3_feb5d")]
 position = Vector2(938, 139)
