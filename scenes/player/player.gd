@@ -6,7 +6,7 @@ class_name player
 
 @export var taille_case = 64
 # Durée (en secondes) pour glisser d'une case à l'autre
-@export var duree_deplacement = 0.12
+@export var duree_deplacement = 0.08
 
 # Vrai pendant l'animation : empêche de lancer un 2e déplacement en même temps
 var en_mouvement = false
@@ -17,6 +17,9 @@ func _ready():
 	tween.tween_property($PointLight2D, "texture_scale", 10.0, 0.2)
 
 func _unhandled_input(event: InputEvent) -> void:
+	if en_mouvement:
+		return
+	
 	if event.is_action_pressed("up"):
 		essayer_deplacer(Vector2.UP)
 	elif event.is_action_pressed("down"):
