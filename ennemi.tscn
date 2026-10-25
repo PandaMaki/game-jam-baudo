@@ -35,6 +35,10 @@ position = Vector2(2, -8.5)
 shape = SubResource("RectangleShape2D_ux1y0")
 
 [node name="visée" type="RayCast2D" parent="." unique_id=1691809256]
-target_position = Vector2(1, 237)
+target_position = Vector2(236, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=2145972395]
+one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

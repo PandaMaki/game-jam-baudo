@@ -18,7 +18,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
 size = Vector2(80, 80)
 
-[node name="Player" type="CharacterBody2D" unique_id=872593450]
+[node name="Player" type="CharacterBody2D" unique_id=872593450 groups=["player"]]
 script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 

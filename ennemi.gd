@@ -5,6 +5,8 @@ const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var cible = null
 var dead = false
+var balle = preload("res://scenes/balle/balle_ennemi.tscn")
+var peut_tirer = true
 
 
 
@@ -17,8 +19,10 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if $visée.is_colliding():
 		var touche = $visée.get_collider()
-		if touche.is_in_group("player"):
-			pass
+		if touche.is_in_group("player") and peut_tirer:
+			tirer()
+			peut_tirer = false
+			$Timer.start()
 	if cible != null:
 		look_at(cible.global_position)
 		$NavigationAgent2D.target_position = cible.global_position
@@ -39,3 +43,14 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	cible = body
+func tirer():
+	var new_ball = balle.instantiate()
+	
+	new_ball.global_position = global_position
+	new_ball.rotation = rotation
+	
+	get_tree().current_scene.add_child(new_ball)
+
+
+func _on_timer_timeout() -> void:
+	peut_tirer = true
