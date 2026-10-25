@@ -19,7 +19,8 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if $visée.is_colliding():
 		var touche = $visée.get_collider()
-		if touche.is_in_group("player") and peut_tirer:
+		# On vérifie que l'objet existe encore avant de l'utiliser
+		if is_instance_valid(touche) and touche.is_in_group("player") and peut_tirer:
 			tirer()
 			peut_tirer = false
 			$Timer.start()
@@ -40,6 +41,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func die():
+	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	cible = body

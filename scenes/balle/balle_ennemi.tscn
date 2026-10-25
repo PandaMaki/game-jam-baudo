@@ -22,3 +22,5 @@ texture = SubResource("GradientTexture1D_gmlin")
 shape = SubResource("RectangleShape2D_lvxji")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1368401861]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
