@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[editor]
+
+movie_writer/movie_file="/home/mathieu/Applications/Godot/Videos/game-jam-baudo/video1.avi"
+
 [global_group]
 
 player=""

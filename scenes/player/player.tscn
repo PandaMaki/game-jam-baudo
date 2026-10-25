@@ -18,6 +18,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
 size = Vector2(80, 80)
 
+[sub_resource type="Gradient" id="Gradient_gmlin"]
+offsets = PackedFloat32Array(0.22891566, 0.7409639)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_apd2n"]
+gradient = SubResource("Gradient_gmlin")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0, 1)
+
 [node name="Player" type="CharacterBody2D" unique_id=872593450 groups=["player"]]
 script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
@@ -32,3 +42,17 @@ shape = SubResource("RectangleShape2D_clr57")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1252639716]
 
 [node name="Pistolet" parent="." unique_id=1604701422 instance=ExtResource("3_gmlin")]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=664462105]
+color = Color(0, 0, 0, 1)
+
+[node name="TimerNoir" type="Timer" parent="." unique_id=618821640]
+wait_time = 0.3
+one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=936811513]
+position = Vector2(-3.8146973e-06, 0)
+scale = Vector2(4, 4)
+texture = SubResource("GradientTexture2D_apd2n")
+
+[connection signal="timeout" from="TimerNoir" to="." method="_on_timer_noir_timeout"]

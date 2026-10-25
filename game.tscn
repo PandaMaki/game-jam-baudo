@@ -19,8 +19,8 @@ parsed_geometry_type = 0
 [node name="game" type="Node2D" unique_id=349331373]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=177255385]
-position = Vector2(574.5, 324.375)
-scale = Vector2(4.4960938, 649.25)
+position = Vector2(523.9999, 276)
+scale = Vector2(9.468749, 1336)
 texture = SubResource("GradientTexture1D_ssvtb")
 
 [node name="Player" parent="." unique_id=872593450 instance=ExtResource("1_80nbo")]
@@ -35,3 +35,5 @@ position = Vector2(941, 309)
 position = Vector2(938, 139)
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1506803974]
+visible = false
+color = Color(0, 0, 0, 1)
