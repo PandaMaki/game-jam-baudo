@@ -44,8 +44,8 @@ shape = SubResource("RectangleShape2D_clr57")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1252639716]
 limit_left = -288
 limit_top = -292
-limit_right = 1216
-limit_bottom = 800
+limit_right = 2400
+limit_bottom = 1500
 
 [node name="Pistolet" parent="." unique_id=1604701422 instance=ExtResource("3_gmlin")]
 
