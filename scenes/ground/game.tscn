@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://4dmik4ep8dj4"]
+
+[ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://iv24j2lstkvs" path="res://scenes/ennemi/ennemi.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://cpqx0lvrw1upx" path="res://scenes/ennemi/spawner/spawner_mob.tscn" id="3_feb5d"]
+
+[sub_resource type="Gradient" id="Gradient_mwb40"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_mwb40")
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ssvtb"]
+vertices = PackedVector2Array(1138.9531, 631.02344, 10, 633.96875, 10, 6.953125, 1136.0391, 2.0390625)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 644, 0, -3, 1146, -8, 1149, 641)])
+parsed_geometry_type = 0
+
+[node name="game" type="Node2D" unique_id=349331373]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=177255385]
+position = Vector2(574.5, 324.375)
+scale = Vector2(4.4960938, 649.25)
+texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="Player" parent="." unique_id=872593450 instance=ExtResource("1_80nbo")]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=121263961]
+navigation_polygon = SubResource("NavigationPolygon_ssvtb")
+
+[node name="ennemi" parent="." unique_id=504666815 instance=ExtResource("2_e2o6t")]
+position = Vector2(941, 309)
+
+[node name="spawner_mob" parent="." unique_id=1146077950 instance=ExtResource("3_feb5d")]
+position = Vector2(938, 139)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1506803974]

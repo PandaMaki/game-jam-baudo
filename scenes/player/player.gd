@@ -1,6 +1,9 @@
 extends CharacterBody2D
 
 #taille d'une case
+
+class_name player
+
 @export var taille_case = 80
 # Durée (en secondes) pour glisser d'une case à l'autre
 @export var duree_deplacement = 0.12

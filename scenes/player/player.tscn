@@ -29,6 +29,7 @@ fill_from = Vector2(0.5, 0.5)
 fill_to = Vector2(0, 1)
 
 [node name="Player" type="CharacterBody2D" unique_id=872593450 groups=["player"]]
+collision_mask = 2
 script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 

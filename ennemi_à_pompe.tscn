@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bpquuk3gv5mb"]
+
+[ext_resource type="Script" uid="uid://bprf3gv5sohj2" path="res://ennemi_à_pompe.gd" id="1_0753t"]
+[ext_resource type="PackedScene" uid="uid://i5hc3pi4l0ce" path="res://fusil_à_pompe.tscn" id="2_0753t"]
+
+[sub_resource type="Gradient" id="Gradient_5npyw"]
+offsets = PackedFloat32Array(0.012048192, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_5npyw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvtb"]
+size = Vector2(74, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux1y0"]
+size = Vector2(866, 731)
+
+[node name="ennemi_à_pompe" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
+collision_layer = 2
+script = ExtResource("1_0753t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
+scale = Vector2(0.28515625, 65)
+texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966610797]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ssvtb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1369964738]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1730165307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=331268232]
+position = Vector2(2, -8.5)
+shape = SubResource("RectangleShape2D_ux1y0")
+
+[node name="visée" type="RayCast2D" parent="." unique_id=1691809256 groups=["ennemi"]]
+target_position = Vector2(150, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=2145972395]
+one_shot = true
+
+[node name="fusil_à_pompe" parent="." unique_id=1933610662 instance=ExtResource("2_0753t")]
+position = Vector2(50, 0)
+rotation = -1.5707964
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
