@@ -27,3 +27,5 @@ shape = SubResource("RectangleShape2D_clr57")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1955384084]
 rect = Rect2(0, -8, 24, 16)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
