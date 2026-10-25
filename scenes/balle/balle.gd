@@ -2,7 +2,6 @@ extends Area2D
 
 @export var speed = 600
 
-
 func _process(delta: float):
 	global_position += Vector2.RIGHT.rotated(rotation) * speed * delta
 

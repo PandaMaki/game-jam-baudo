@@ -38,6 +38,7 @@ shape = SubResource("RectangleShape2D_ux1y0")
 target_position = Vector2(236, 1)
 
 [node name="Timer" type="Timer" parent="." unique_id=2145972395]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
