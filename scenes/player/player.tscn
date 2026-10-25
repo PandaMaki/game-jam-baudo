@@ -15,7 +15,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
-size = Vector2(128, 128)
+size = Vector2(80, 80)
 
 [node name="Player" type="CharacterBody2D" unique_id=872593450]
 script = ExtResource("1_dovo2")
@@ -27,3 +27,5 @@ sprite_frames = SubResource("SpriteFrames_clr57")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567083766]
 shape = SubResource("RectangleShape2D_clr57")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1252639716]
