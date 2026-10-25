@@ -1,41 +1,19 @@
 extends CharacterBody2D
 
-
-@onready var player: CharacterBody2D = $"."
-
-@export var speed = 600
-@export var acceleration = 40.0
-@export var friction = 35.0
-
-
 @export var taille_case = 80
 
-func _physics_process(delta: float) -> void:
-	#Système de déplacement libre
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("up"):
+		essayer_deplacer(Vector2.UP)
+	elif event.is_action_pressed("down"):
+		essayer_deplacer(Vector2.DOWN)
+	elif event.is_action_pressed("left"):
+		essayer_deplacer(Vector2.LEFT)
+	elif event.is_action_pressed("right"):
+		essayer_deplacer(Vector2.RIGHT)
 
-	#var direction = Vector2.ZERO
-	#direction.x = Input.get_axis("left", "right")
-	#direction.y = Input.get_axis("up", "down")
-	
-	#direction = direction.normalized()
-	
-	#if direction != Vector2.ZERO:
-		#velocity = velocity.move_toward(direction * speed, acceleration)
-	#else:
-		#velocity = velocity.move_toward(Vector2.ZERO, friction)
-		
-	#move_and_slide()
-	
-	pass
-	
-
-func _input(event: InputEvent) -> void:
-	#Système de déplacement en grille
-	if Input.is_action_just_pressed("up"):
-		position.y -= taille_case
-	if Input.is_action_just_pressed("down"):
-		position.y += taille_case
-	if Input.is_action_just_pressed("left"):
-		position.x -= taille_case
-	if Input.is_action_just_pressed("right"):
-		position.x += taille_case
+func essayer_deplacer(dir: Vector2) -> void:
+	var mouvement = dir * taille_case
+	# test_move renvoie true s'il y a une collision sur ce trajet
+	if not test_move(global_transform, mouvement):
+		global_position += mouvement
