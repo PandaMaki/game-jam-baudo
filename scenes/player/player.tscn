@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dppa3j3gu7yam" path="res://icon.svg" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dox3pcis7klqm" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://dwjms81xv30mw" path="res://scenes/pistolet/pistolet.tscn" id="3_gmlin"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_clr57"]
 animations = [{
@@ -29,3 +30,5 @@ sprite_frames = SubResource("SpriteFrames_clr57")
 shape = SubResource("RectangleShape2D_clr57")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1252639716]
+
+[node name="Pistolet" parent="." unique_id=1604701422 instance=ExtResource("3_gmlin")]
