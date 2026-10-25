@@ -11,16 +11,6 @@ extends CharacterBody2D
 @export var taille_case = 80
 
 func _physics_process(delta: float) -> void:
-
-	if Input.is_action_just_pressed("up"):
-		player.position -= Vector2(0,50)
-	if Input.is_action_just_pressed("down"):
-		player.position += Vector2(0,50)
-	if Input.is_action_just_pressed("left"):
-		player.position -= Vector2(50,0)
-	if Input.is_action_just_pressed("right"):
-		player.position += Vector2(50,0)
-
 	#Système de déplacement libre
 
 	#var direction = Vector2.ZERO
@@ -36,10 +26,16 @@ func _physics_process(delta: float) -> void:
 		
 	#move_and_slide()
 	
+	pass
+	
 
-func _unhandled_input(event: InputEvent) -> void:
+func _input(event: InputEvent) -> void:
 	#Système de déplacement en grille
 	if Input.is_action_just_pressed("up"):
 		position.y -= taille_case
 	if Input.is_action_just_pressed("down"):
 		position.y += taille_case
+	if Input.is_action_just_pressed("left"):
+		position.x -= taille_case
+	if Input.is_action_just_pressed("right"):
+		position.x += taille_case
