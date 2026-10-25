@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if $visée.is_colliding():
 		var touche = $visée.get_collider()
-		if touche.is_in_group("player") and peut_tirer:
+		if touche != null and touche.is_in_group("player") and peut_tirer:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 			$fusil_à_pompe.shoot()

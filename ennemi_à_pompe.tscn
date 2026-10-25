@@ -17,6 +17,7 @@ size = Vector2(74, 65)
 size = Vector2(866, 731)
 
 [node name="ennemi_à_pompe" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
+collision_layer = 2
 script = ExtResource("1_0753t")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
