@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://i5hc3pi4l0ce"]
 
-[ext_resource type="Script" uid="uid://bp2aciumgklew" path="res://fusil_à_pompe.gd" id="1_fconl"]
+[ext_resource type="Script" uid="uid://bp2aciumgklew" path="res://scripts/fusil_à_pompe.gd" id="1_fconl"]
 
 [sub_resource type="Gradient" id="Gradient_lv3wc"]
 
