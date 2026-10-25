@@ -19,7 +19,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if $visée.is_colliding():
 		var touche = $visée.get_collider()
-		if touche.is_in_group("player") and peut_tirer:
+		if is_instance_valid(touche) and touche.is_in_group("player") and peut_tirer:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 			tirer()
@@ -42,6 +42,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func die():
+	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	cible = body

@@ -35,3 +35,5 @@ position = Vector2(941, 309)
 [node name="spawner_mob" parent="." unique_id=1146077950 instance=ExtResource("3_feb5d")]
 position = Vector2(938, 139)
 ennemi_scene = ExtResource("4_fc0e3")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1506803974]

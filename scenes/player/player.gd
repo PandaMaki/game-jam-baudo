@@ -19,6 +19,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		essayer_deplacer(Vector2.RIGHT)
 
 
+func die():
+	queue_free()
+
 func essayer_deplacer(dir: Vector2) -> void:
 	var mouvement = dir * taille_case
 	# test_move simule le déplacement sans le faire.
@@ -35,3 +38,6 @@ func essayer_deplacer(dir: Vector2) -> void:
 	await tween.finished
 	# Animation finie : le perso peut de nouveau bouger
 	en_mouvement = false
+	
+func mecanique():
+	pass
