@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://qldw30hk181s"]
+
+[ext_resource type="Script" path="res://scenes/balle/balle.gd" id="1_2m6f2"]
+
+[sub_resource type="Gradient" id="Gradient_md1jc"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_clr57"]
+gradient = SubResource("Gradient_md1jc")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
+size = Vector2(24, 16)
+
+[node name="Balle" type="Area2D" unique_id=146140346]
+script = ExtResource("1_2m6f2")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959880360]
+position = Vector2(12, 0)
+scale = Vector2(0.09375, 16)
+texture = SubResource("GradientTexture1D_clr57")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56978444]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_clr57")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1955384084]
+rect = Rect2(0, -8, 24, 16)
