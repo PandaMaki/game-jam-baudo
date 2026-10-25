@@ -16,7 +16,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
-size = Vector2(80, 80)
+size = Vector2(64, 64)
 
 [sub_resource type="Gradient" id="Gradient_gmlin"]
 offsets = PackedFloat32Array(0.22891566, 0.7409639)
@@ -34,7 +34,7 @@ script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=783419885]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_clr57")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567083766]
