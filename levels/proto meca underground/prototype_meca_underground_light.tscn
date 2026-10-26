@@ -40,3 +40,6 @@ texture_scale = 40.56
 unique_name_in_owner = true
 position = Vector2(592, 304)
 scale = Vector2(0.5, 0.5)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=218197294]
+color = Color(0, 0, 0, 1)

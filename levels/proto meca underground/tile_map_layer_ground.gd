@@ -38,7 +38,7 @@ func generer_salle_objectif():
 
 func generer_case(case: Vector2i):
 	var nb_aleatoire = randf()
-	if nb_aleatoire < 0.30 :
+	if nb_aleatoire < 0.80 :
 		set_cell(case, source_id, Vector2i(0,1))
 	else:
 		set_cell(case, source_id, Vector2i(1,1))
