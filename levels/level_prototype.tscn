@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b6tbwa2e218on" path="res://assets/tiles/prototype/Tileset_prototype.png" id="1_135xi"]
 [ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="2_klkcg"]
+[ext_resource type="PackedScene" uid="uid://b5gsdgasm7jdw" path="res://ennemi_flamme.tscn" id="3_135xi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jirdo"]
 texture = ExtResource("1_135xi")
@@ -31,3 +32,6 @@ position = Vector2(32, 32)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1992768738]
 editor_only = true
+
+[node name="ennemi" parent="." unique_id=504666815 instance=ExtResource("3_135xi")]
+position = Vector2(1536, 248)
