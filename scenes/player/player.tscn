@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://dppa3j3gu7yam" path="res://icon.svg" id="1_8afob"]
 [ext_resource type="Script" uid="uid://dox3pcis7klqm" path="res://scenes/player/player.gd" id="1_dovo2"]
 [ext_resource type="PackedScene" uid="uid://dwjms81xv30mw" path="res://scenes/pistolet/pistolet.tscn" id="3_gmlin"]
+[ext_resource type="Texture2D" uid="uid://ckddujdh2jwbm" path="res://assets/player tiles/mole on ground/Mole_1_64_x_64.png" id="3_p47bc"]
+[ext_resource type="Texture2D" uid="uid://cluib1hf6lw6e" path="res://assets/player tiles/mole on ground/Taupe1.png" id="4_75vfm"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_clr57"]
 animations = [{
@@ -12,6 +14,17 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_p47bc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_75vfm")
+}],
+"loop": 1,
+"name": &"mole_on_ground_searching_path",
 "speed": 5.0
 }]
 
@@ -34,14 +47,15 @@ script = ExtResource("1_dovo2")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=783419885]
-scale = Vector2(0.495, 0.495)
 sprite_frames = SubResource("SpriteFrames_clr57")
+animation = &"mole_on_ground_searching_path"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1567083766]
 scale = Vector2(0.99, 0.99)
 shape = SubResource("RectangleShape2D_clr57")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1252639716]
+zoom = Vector2(1.5, 1.5)
 limit_left = -288
 limit_top = -292
 limit_right = 2400
