@@ -26,8 +26,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		essayer_deplacer(Vector2.DOWN)
 	elif event.is_action_pressed("left"):
 		essayer_deplacer(Vector2.LEFT)
+		$AnimatedSprite2D.flip_h = true
 	elif event.is_action_pressed("right"):
 		essayer_deplacer(Vector2.RIGHT)
+		$AnimatedSprite2D.flip_h = false
 
 func die():
 	queue_free()
@@ -41,9 +43,12 @@ func essayer_deplacer(dir: Vector2) -> void:
 	# Pas d'obstacle : on lance le déplacement
 	en_mouvement = true
 	
+	#on va sous terre
 	$TimerNoir.stop()
 	var tween = create_tween()
 	tween.tween_property($PointLight2D, "texture_scale", 1.0, 0.2)
+	#on passe a l'animation sous terre
+	$AnimatedSprite2D.animation = "sous_terre"
 	
 	# Le Tween anime une propriété progressivement dans le temps
 	tween = create_tween()
@@ -54,10 +59,15 @@ func essayer_deplacer(dir: Vector2) -> void:
 	# Animation finie : le perso peut de nouveau bouger
 	en_mouvement = false
 	
+	#on sort de terre
 	$TimerNoir.start()
 
+#on sort de terre
 func _on_timer_noir_timeout() -> void:
 	if en_mouvement:
 		return
 	var tween = create_tween()
 	tween.tween_property($PointLight2D, "texture_scale", 10.0, 0.5)
+	
+	#on passe a l'animation hors de terre
+	$AnimatedSprite2D.animation = "sortie_de_terre"
