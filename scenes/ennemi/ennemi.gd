@@ -48,9 +48,10 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 	cible = body
 func tirer():
 	var new_ball = balle.instantiate()
-	
-	new_ball.global_position = global_position
-	new_ball.rotation = rotation
+	var direction = $visée
+	new_ball.direction = (cible.global_position - direction.global_position).normalized()
+	new_ball.global_position = direction.global_position
+	new_ball.rotation = new_ball.direction.angle()
 	
 	get_tree().current_scene.add_child(new_ball)
 
