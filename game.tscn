@@ -48,6 +48,6 @@ color = Color(0, 0, 0, 1)
 position = Vector2(932, 486)
 
 [node name="ennemi3" parent="." unique_id=523428700 instance=ExtResource("7_eow3j")]
-position = Vector2(329, 329)
+position = Vector2(1114, 171)
 
 [connection signal="mort" from="Player" to="." method="_on_player_mort"]
