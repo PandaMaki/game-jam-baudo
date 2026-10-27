@@ -3,7 +3,7 @@ extends CharacterBody2D
 #taille d'une case
 
 class_name player
-
+signal mort
 @export var taille_case = 32
 # Durée (en secondes) pour glisser d'une case à l'autre
 @export var duree_deplacement = 0.08
@@ -32,7 +32,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		$AnimatedSprite2D.flip_h = false
 
 func die():
-	queue_free()
+	emit_signal("mort")
 
 func essayer_deplacer(dir: Vector2) -> void:
 	var mouvement = dir * taille_case

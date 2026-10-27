@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" uid="uid://c1waq1sa70grj" path="res://scenes/UI/main.gd" id="1_xc5wj"]
 [ext_resource type="PackedScene" uid="uid://dgw82nlc3vg7k" path="res://scenes/UI/menu.tscn" id="2_5paq6"]
-[ext_resource type="PackedScene" uid="uid://4dmik4ep8dj4" path="res://scenes/ground/game.tscn" id="3_orlg7"]
+[ext_resource type="PackedScene" uid="uid://4dmik4ep8dj4" path="res://game.tscn" id="3_orlg7"]
+[ext_resource type="PackedScene" uid="uid://dfqivb6uxhh11" path="res://game_over.tscn" id="4_5paq6"]
 
 [node name="main" type="Node" unique_id=1513849039]
 script = ExtResource("1_xc5wj")
@@ -12,4 +13,9 @@ process_mode = 2
 
 [node name="game" parent="." unique_id=349331373 instance=ExtResource("3_orlg7")]
 
+[node name="game_over" parent="." unique_id=938645877 instance=ExtResource("4_5paq6")]
+process_mode = 2
+
 [connection signal="commencer" from="menu" to="." method="_on_menu_commencer"]
+[connection signal="vrai_mort" from="game" to="." method="_on_game_vrai_mort"]
+[connection signal="restart" from="game_over" to="." method="_on_game_over_restart"]
