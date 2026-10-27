@@ -1,9 +1,11 @@
 extends CharacterBody2D
 
-#taille d'une case
-
 class_name player
 
+signal sol
+signal sous_sol
+
+#taille d'une case
 @export var taille_case = 32
 # Durée (en secondes) pour glisser d'une case à l'autre
 @export var duree_deplacement = 0.08
@@ -47,6 +49,7 @@ func essayer_deplacer(dir: Vector2) -> void:
 	$TimerNoir.stop()
 	var tween = create_tween()
 	tween.tween_property($PointLight2D, "texture_scale", 1.0, 0.2)
+	sous_sol.emit()
 	#on passe a l'animation sous terre
 	$AnimatedSprite2D.animation = "sous_terre"
 	
@@ -68,6 +71,7 @@ func _on_timer_noir_timeout() -> void:
 		return
 	var tween = create_tween()
 	tween.tween_property($PointLight2D, "texture_scale", 10.0, 0.5)
+	sol.emit()
 	
 	#on passe a l'animation hors de terre
 	$AnimatedSprite2D.animation = "sortie_de_terre"
