@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dgw82nlc3vg7k" path="res://scenes/UI/menu.tscn" id="2_5paq6"]
 [ext_resource type="PackedScene" uid="uid://4dmik4ep8dj4" path="res://game.tscn" id="3_orlg7"]
 [ext_resource type="PackedScene" uid="uid://dfqivb6uxhh11" path="res://game_over.tscn" id="4_5paq6"]
+[ext_resource type="PackedScene" uid="uid://bbe4nir0gwi58" path="res://scenes/UI/level_chooser.tscn" id="5_orlg7"]
 
 [node name="main" type="Node" unique_id=1513849039]
 script = ExtResource("1_xc5wj")
@@ -14,6 +15,9 @@ process_mode = 2
 [node name="game" parent="." unique_id=349331373 instance=ExtResource("3_orlg7")]
 
 [node name="game_over" parent="." unique_id=938645877 instance=ExtResource("4_5paq6")]
+process_mode = 2
+
+[node name="LevelChooser" parent="." unique_id=162894512 instance=ExtResource("5_orlg7")]
 process_mode = 2
 
 [connection signal="commencer" from="menu" to="." method="_on_menu_commencer"]
