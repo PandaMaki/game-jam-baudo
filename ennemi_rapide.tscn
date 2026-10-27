@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bprgdqqxfkn0s"]
+
+[ext_resource type="Script" uid="uid://ct6qnd7vrcu6j" path="res://ennemi_rapide.gd" id="1_gayo2"]
+
+[sub_resource type="Gradient" id="Gradient_5npyw"]
+offsets = PackedFloat32Array(0.012048192, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_5npyw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvtb"]
+size = Vector2(74, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux1y0"]
+size = Vector2(866, 731)
+
+[node name="ennemi" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
+collision_layer = 2
+script = ExtResource("1_gayo2")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
+scale = Vector2(0.28515625, 65)
+texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966610797]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ssvtb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1369964738]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1730165307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=331268232]
+position = Vector2(2, -8.5)
+shape = SubResource("RectangleShape2D_ux1y0")
+
+[node name="visée" type="RayCast2D" parent="." unique_id=1691809256]
+position = Vector2(38, 0)
+target_position = Vector2(25, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=2145972395]
+wait_time = 0.5
+one_shot = true
+
+[node name="degat" type="RayCast2D" parent="." unique_id=1481920053]
+target_position = Vector2(63, 0)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

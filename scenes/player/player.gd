@@ -5,6 +5,8 @@ class_name player
 signal sol
 signal sous_sol
 
+signal mort
+
 #taille d'une case
 @export var taille_case = 32
 # Durée (en secondes) pour glisser d'une case à l'autre
@@ -34,7 +36,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		$AnimatedSprite2D.flip_h = false
 
 func die():
-	queue_free()
+	emit_signal("mort")
 
 func essayer_deplacer(dir: Vector2) -> void:
 	var mouvement = dir * taille_case
