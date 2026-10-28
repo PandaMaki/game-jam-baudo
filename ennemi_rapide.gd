@@ -25,9 +25,9 @@ func _physics_process(delta: float) -> void:
 	if $visée.is_colliding():
 		var touche = $visée.get_collider()
 		# On vérifie que l'objet existe encore avant de l'utiliser
-		if is_instance_valid(touche) and touche.is_in_group("player") :
+		if is_instance_valid(touche) and touche.is_in_group("player") and peut_tirer :
 			$degat.enabled = true
-			touche.die()
+			touche.prendre_degat(10)
 	if cible != null:
 		look_at(cible.global_position)
 		$NavigationAgent2D.target_position = cible.global_position

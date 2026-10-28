@@ -7,7 +7,7 @@ var cible = null
 var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
 var peut_tirer = true
-var vie = 200
+var vie = 300
 
 func prendre_degat(degat):
 	vie -= degat
@@ -20,15 +20,8 @@ func _physics_process(delta: float) -> void:
 	if vie <= 0:
 		die()
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-	if $visée.is_colliding():
-		var touche = $visée.get_collider()
-		# On vérifie que l'objet existe encore avant de l'utiliser
-		if is_instance_valid(touche) and touche.is_in_group("player") and peut_tirer:
-			tirer()
-			peut_tirer = false
-			$Timer.start()
+
+
 	if cible != null:
 		look_at(cible.global_position)
 		$NavigationAgent2D.target_position = cible.global_position
@@ -63,3 +56,8 @@ func tirer():
 
 func _on_timer_timeout() -> void:
 	peut_tirer = true
+
+
+func _on_soin_body_entered(body: Node2D) -> void:
+	if peut_tirer and body.is_in_group("ennemi"):
+		body.prendre_degat(-10)

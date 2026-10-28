@@ -1,8 +1,6 @@
 [gd_scene format=3 uid="uid://c7x4e40p5jlgy"]
 
 [ext_resource type="Script" uid="uid://b5tijtd7bxnpb" path="res://sorciere.gd" id="1_0cec3"]
-[ext_resource type="PackedScene" uid="uid://cpqx0lvrw1upx" path="res://scenes/ennemi/spawner/spawner_mob.tscn" id="2_txiy4"]
-[ext_resource type="PackedScene" uid="uid://bprgdqqxfkn0s" path="res://ennemi_rapide.tscn" id="3_lqvhw"]
 
 [sub_resource type="Gradient" id="Gradient_5npyw"]
 offsets = PackedFloat32Array(0.012048192, 1)
@@ -45,24 +43,22 @@ target_position = Vector2(236, 1)
 wait_time = 0.5
 one_shot = true
 
-[node name="spawner_mob" parent="." unique_id=1146077950 instance=ExtResource("2_txiy4")]
-position = Vector2(0, 123)
-ennemi_scene = ExtResource("3_lqvhw")
-
-[node name="spawner_mob2" parent="." unique_id=989284914 instance=ExtResource("2_txiy4")]
-position = Vector2(201, -1)
-ennemi_scene = ExtResource("3_lqvhw")
-
-[node name="spawner_mob3" parent="." unique_id=1629480766 instance=ExtResource("2_txiy4")]
-position = Vector2(-182, 5)
-ennemi_scene = ExtResource("3_lqvhw")
-
-[node name="spawner_mob4" parent="." unique_id=781997773 instance=ExtResource("2_txiy4")]
-position = Vector2(3, -159)
-ennemi_scene = ExtResource("3_lqvhw")
-
 [node name="invocation_timer" type="Timer" parent="." unique_id=1368332985]
 wait_time = 10.0
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1567588887]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=1197306517]
+position = Vector2(-1, -209)
+
+[node name="Marker2D2" type="Marker2D" parent="Node2D" unique_id=377462665]
+position = Vector2(211, -3)
+
+[node name="Marker2D3" type="Marker2D" parent="Node2D" unique_id=1244066691]
+position = Vector2(-1, 133)
+
+[node name="Marker2D4" type="Marker2D" parent="Node2D" unique_id=1424225245]
+position = Vector2(-176, -3)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://cpm0dlinpq34y"]
+
+[ext_resource type="Script" uid="uid://r8xiupg4xkfb" path="res://scenes/ennemi/ennemi.gd" id="1_f5v6c"]
+
+[sub_resource type="Gradient" id="Gradient_5npyw"]
+offsets = PackedFloat32Array(0.012048192, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_5npyw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvtb"]
+size = Vector2(74, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux1y0"]
+size = Vector2(1771, 1264)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n2121"]
+size = Vector2(869, 735)
+
+[node name="ennemi" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
+collision_layer = 2
+script = ExtResource("1_f5v6c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
+scale = Vector2(0.28515625, 65)
+texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966610797]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ssvtb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1369964738]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1730165307]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=331268232]
+position = Vector2(0.5, -1)
+shape = SubResource("RectangleShape2D_ux1y0")
+
+[node name="visée" type="RayCast2D" parent="." unique_id=1691809256]
+position = Vector2(38, 0)
+target_position = Vector2(236, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=2145972395]
+wait_time = 0.5
+one_shot = true
+
+[node name="soin" type="Area2D" parent="." unique_id=494862608]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="soin" unique_id=685147073]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_n2121")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="soin" to="." method="_on_soin_body_entered"]

@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -400.0
 var cible = null
 var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
+var ennemi_rapide = preload("res://ennemi_rapide.tscn")
+var ennemies : Array[Marker2D] = [$Node2D/Marker2D , $Node2D/Marker2D2 , $Node2D/Marker2D3 , $Node2D/Marker2D4]
+var ennemies_utilisé : Array[Marker2D] = []
 var peut_tirer = true
 var vie = 300
 
@@ -29,7 +32,6 @@ func _physics_process(delta: float) -> void:
 			peut_tirer = false
 			$Timer.start()
 	if cible != null:
-		invocation()
 		$invocation_timer.start()
 		look_at(cible.global_position)
 		$NavigationAgent2D.target_position = cible.global_position
@@ -66,10 +68,16 @@ func _on_timer_timeout() -> void:
 	peut_tirer = true
 
 func invocation():
-	$spawner_mob.spawn()
-	$spawner_mob2.spawn()
-	$spawner_mob3.spawn()
-	$spawner_mob4.spawn()
+	for i in range(4):
+		var squellette = ennemi_rapide.instantiate()
+		var direction = ennemies.pick_random()
+		while ennemies_utilisé.has(direction):
+			direction = ennemies.pick_random()
+		squellette.global_position = direction.global_position
+		
+		get_tree().current_scene.add_child(squellette)
+		ennemies_utilisé.append(direction)
+	ennemies_utilisé.clear()
 
 func _on_invocation_timer_timeout() -> void:
 	invocation()
