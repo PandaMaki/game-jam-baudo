@@ -7,13 +7,17 @@ var cible = null
 var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
 var peut_tirer = true
+var vie = 400
 
+func prendre_degat(degat):
+	vie -= degat
 
 
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-
+	if vie <= 0:
+		die()
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

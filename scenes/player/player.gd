@@ -11,6 +11,8 @@ signal mort
 @export var taille_case = 32
 # Durée (en secondes) pour glisser d'une case à l'autre
 @export var duree_deplacement = 0.08
+@export var vie_max = 100
+var vie = 100
 
 # Vrai pendant l'animation : empêche de lancer un 2e déplacement en même temps
 var en_mouvement = false
@@ -19,11 +21,18 @@ func _ready():
 	#lumière allumée
 	var tween = create_tween()
 	tween.tween_property($PointLight2D, "texture_scale", 10.0, 0.2)
+	$CanvasLayer/barre_de_vie.max_value = vie_max
+	$CanvasLayer/barre_de_vie.value = vie
+
+func prendre_degat(degat):
+	vie -= degat
+	$CanvasLayer/barre_de_vie.value = vie
 
 func _unhandled_input(event: InputEvent) -> void:
 	if en_mouvement:
 		return
-	
+
+
 	if event.is_action_pressed("up"):
 		essayer_deplacer(Vector2.UP)
 	elif event.is_action_pressed("down"):
@@ -77,3 +86,7 @@ func _on_timer_noir_timeout() -> void:
 	
 	#on passe a l'animation hors de terre
 	$AnimatedSprite2D.animation = "sortie_de_terre"
+
+func _process(delta: float) -> void:
+	if vie <= 0:
+		die()

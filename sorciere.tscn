@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://c7x4e40p5jlgy"]
+
+[ext_resource type="Script" uid="uid://b5tijtd7bxnpb" path="res://sorciere.gd" id="1_0cec3"]
+[ext_resource type="PackedScene" uid="uid://cpqx0lvrw1upx" path="res://scenes/ennemi/spawner/spawner_mob.tscn" id="2_txiy4"]
+[ext_resource type="PackedScene" uid="uid://bprgdqqxfkn0s" path="res://ennemi_rapide.tscn" id="3_lqvhw"]
+
+[sub_resource type="Gradient" id="Gradient_5npyw"]
+offsets = PackedFloat32Array(0.012048192, 1)
+colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_5npyw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvtb"]
+size = Vector2(74, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux1y0"]
+size = Vector2(866, 731)
+
+[node name="ennemi" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
+collision_layer = 2
+script = ExtResource("1_0cec3")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
+scale = Vector2(0.28515625, 65)
+texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966610797]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ssvtb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1369964738]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1730165307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=331268232]
+position = Vector2(2, -8.5)
+shape = SubResource("RectangleShape2D_ux1y0")
+
+[node name="visée" type="RayCast2D" parent="." unique_id=1691809256]
+position = Vector2(38, 0)
+target_position = Vector2(236, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=2145972395]
+wait_time = 0.5
+one_shot = true
+
+[node name="spawner_mob" parent="." unique_id=1146077950 instance=ExtResource("2_txiy4")]
+position = Vector2(0, 123)
+ennemi_scene = ExtResource("3_lqvhw")
+
+[node name="spawner_mob2" parent="." unique_id=989284914 instance=ExtResource("2_txiy4")]
+position = Vector2(201, -1)
+ennemi_scene = ExtResource("3_lqvhw")
+
+[node name="spawner_mob3" parent="." unique_id=1629480766 instance=ExtResource("2_txiy4")]
+position = Vector2(-182, 5)
+ennemi_scene = ExtResource("3_lqvhw")
+
+[node name="spawner_mob4" parent="." unique_id=781997773 instance=ExtResource("2_txiy4")]
+position = Vector2(3, -159)
+ennemi_scene = ExtResource("3_lqvhw")
+
+[node name="invocation_timer" type="Timer" parent="." unique_id=1368332985]
+wait_time = 10.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="invocation_timer" to="." method="_on_invocation_timer_timeout"]

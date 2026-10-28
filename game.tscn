@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bpquuk3gv5mb" path="res://ennemi_à_pompe.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://b5gsdgasm7jdw" path="res://ennemi_flamme.tscn" id="5_7jktm"]
 [ext_resource type="PackedScene" uid="uid://bprgdqqxfkn0s" path="res://ennemi_rapide.tscn" id="7_eow3j"]
+[ext_resource type="PackedScene" uid="uid://c7x4e40p5jlgy" path="res://sorciere.tscn" id="8_j5wjh"]
 
 [sub_resource type="Gradient" id="Gradient_mwb40"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
@@ -49,5 +50,8 @@ position = Vector2(932, 486)
 
 [node name="ennemi3" parent="." unique_id=523428700 instance=ExtResource("7_eow3j")]
 position = Vector2(1114, 171)
+
+[node name="ennemi4" parent="." unique_id=1869121481 instance=ExtResource("8_j5wjh")]
+position = Vector2(392, 450)
 
 [connection signal="mort" from="Player" to="." method="_on_player_mort"]

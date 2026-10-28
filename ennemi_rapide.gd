@@ -7,7 +7,10 @@ var cible = null
 var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
 var peut_tirer = true
+var vie = 100
 
+func prendre_degat(degat):
+	vie -= degat
 
 
 
@@ -15,6 +18,8 @@ func _ready() -> void:
 	$degat.enabled = false
 
 func _physics_process(delta: float) -> void:
+	if vie <= 0:
+		die()
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 	if $visée.is_colliding():

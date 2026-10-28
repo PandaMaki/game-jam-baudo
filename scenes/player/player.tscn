@@ -121,4 +121,10 @@ position = Vector2(-3.8146973e-06, 0)
 scale = Vector2(4, 4)
 texture = SubResource("GradientTexture2D_apd2n")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=9894204]
+
+[node name="barre_de_vie" type="ProgressBar" parent="CanvasLayer" unique_id=2080266704]
+offset_right = 128.0
+offset_bottom = 27.0
+
 [connection signal="timeout" from="TimerNoir" to="." method="_on_timer_noir_timeout"]

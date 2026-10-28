@@ -16,8 +16,8 @@ func _on_body_entered(body: Node2D) -> void:
 		return
 	
 	# 2. Si c'est l'ennemi, on le tue et on détruit la balle
-	if body.has_method("die"):
-		body.die() # Va activer le queue_free() de l'ennemi
+	if body.has_method("prendre_degat(degat)"):
+		body.prendre_degat(25) # Va activer le queue_free() de l'ennemi
 		print("ennemi est mort")
 		queue_free() # Détruit la balle
 		print("balle détruite")

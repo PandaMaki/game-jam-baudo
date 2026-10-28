@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cpqx0lvrw1upx"]
 
 [ext_resource type="Script" uid="uid://b46qg6ds0pyp3" path="res://scenes/ennemi/spawner/spawner_mob.gd" id="1_8je6w"]
-[ext_resource type="PackedScene" uid="uid://iv24j2lstkvs" path="res://scenes/ennemi/ennemi.tscn" id="2_8enx5"]
+[ext_resource type="PackedScene" uid="uid://iv24j2lstkvs" path="res://ennemi.tscn" id="2_8enx5"]
 
 [node name="spawner_mob" type="Node2D" unique_id=1146077950]
 script = ExtResource("1_8je6w")

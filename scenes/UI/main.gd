@@ -10,6 +10,8 @@ func _ready() -> void:
 
 func _on_menu_commencer() -> void:
 	$LevelChooser.show()
+	$game/Player.vie = 100
+	$game/Player/CanvasLayer/barre_de_vie.value = $game/Player.vie
 	$menu.hide()
 
 
