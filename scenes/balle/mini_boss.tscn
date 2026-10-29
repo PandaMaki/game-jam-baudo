@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cvp621j86t1jk"]
+
+[ext_resource type="Script" uid="uid://bpk27uwny5ykf" path="res://scenes/balle/mini_boss.gd" id="1_nfydf"]
+[ext_resource type="PackedScene" uid="uid://c2wh1f7n2e5by" path="res://minigun.tscn" id="2_gxjep"]
+
+[sub_resource type="Gradient" id="Gradient_5npyw"]
+offsets = PackedFloat32Array(0.012048192, 1)
+colors = PackedColorArray(0, 1, 0, 1, 0, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_5npyw")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvtb"]
+size = Vector2(74, 65)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ux1y0"]
+size = Vector2(866, 731)
+
+[node name="ennemi_à_pompe" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
+collision_layer = 2
+script = ExtResource("1_nfydf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
+scale = Vector2(0.28515625, 65)
+texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966610797]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ssvtb")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1369964738]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1730165307]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=331268232]
+position = Vector2(2, -8.5)
+shape = SubResource("RectangleShape2D_ux1y0")
+
+[node name="visée" type="RayCast2D" parent="." unique_id=1691809256 groups=["ennemi"]]
+target_position = Vector2(390, -1)
+
+[node name="Timer" type="Timer" parent="." unique_id=2145972395]
+wait_time = 0.1
+one_shot = true
+
+[node name="fusil_à_pompe" parent="." unique_id=1933610662 instance=ExtResource("2_gxjep")]
+position = Vector2(1, -39)
+rotation = -1.5707964
+
+[node name="fusil_à_pompe2" parent="." unique_id=1167800526 instance=ExtResource("2_gxjep")]
+position = Vector2(-1, 40)
+rotation = -1.5707964
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c2wh1f7n2e5by"]
+
+[ext_resource type="Script" uid="uid://dgiifd3bq5uke" path="res://minigun.gd" id="1_mg6dc"]
+
+[sub_resource type="Gradient" id="Gradient_lv3wc"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
+gradient = SubResource("Gradient_lv3wc")
+
+[node name="fusil_à_pompe" type="Node2D" unique_id=1933610662]
+rotation = 1.5707964
+script = ExtResource("1_mg6dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1886959440]
+position = Vector2(0, 1)
+scale = Vector2(0.054687504, 30.000002)
+texture = SubResource("GradientTexture1D_ssvtb")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=391150766]
+
+[node name="Canon1" type="RayCast2D" parent="Node2D" unique_id=716415659]
+position = Vector2(-6.9999995, 16)
+scale = Vector2(0.99999994, 0.99999994)
+target_position = Vector2(-4.9999976, 45)
+
+[node name="Canon2" type="RayCast2D" parent="Node2D" unique_id=1711563353]
+position = Vector2(6.993822e-07, 16)
+target_position = Vector2(2.0981465e-06, 48)
+
+[node name="Canon3" type="RayCast2D" parent="Node2D" unique_id=1643436647]
+position = Vector2(7.0000005, 16)
+scale = Vector2(0.99999994, 0.99999994)
+target_position = Vector2(10.000002, 45)

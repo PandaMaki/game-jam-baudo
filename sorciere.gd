@@ -7,10 +7,13 @@ var cible = null
 var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
 var ennemi_rapide = preload("res://ennemi_rapide.tscn")
-var ennemies : Array[Marker2D] = [$Node2D/Marker2D , $Node2D/Marker2D2 , $Node2D/Marker2D3 , $Node2D/Marker2D4]
+@onready var ennemies = [$Node2D/Marker2D , $Node2D/Marker2D2 , $Node2D/Marker2D3 , $Node2D/Marker2D4]
 var ennemies_utilisé : Array[Marker2D] = []
 var peut_tirer = true
 var vie = 300
+
+func _ready() -> void:
+	$invocation_timer.start()
 
 func prendre_degat(degat):
 	vie -= degat
@@ -32,7 +35,7 @@ func _physics_process(delta: float) -> void:
 			peut_tirer = false
 			$Timer.start()
 	if cible != null:
-		$invocation_timer.start()
+		print("Cible valide : ", cible.name, " | ", cible.global_position)
 		look_at(cible.global_position)
 		$NavigationAgent2D.target_position = cible.global_position
 		var direction_mouvement = $NavigationAgent2D.get_next_path_position()
@@ -43,6 +46,11 @@ func _physics_process(delta: float) -> void:
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.y = move_toward(velocity.y, 0, SPEED)
+		print("Ennemi : ", global_position)
+		print("Cible : ", cible.global_position)
+		print("Prochain point : ", $NavigationAgent2D.get_next_path_position())
+		print("Distance ennemi-point : ", global_position.distance_to($NavigationAgent2D.get_next_path_position()))
+		print("Carte de navigation : ", $NavigationAgent2D.get_navigation_map())
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
 
@@ -53,7 +61,8 @@ func die():
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	cible = body
+	if body.is_in_group("player"):
+		cible = body
 func tirer():
 	var new_ball = balle.instantiate()
 	var direction = $visée

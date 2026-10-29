@@ -3,6 +3,8 @@
 [ext_resource type="Texture2D" uid="uid://b6tbwa2e218on" path="res://assets/tiles/prototype/Tileset_prototype.png" id="1_135xi"]
 [ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="2_klkcg"]
 [ext_resource type="PackedScene" uid="uid://b5gsdgasm7jdw" path="res://ennemi_flamme.tscn" id="3_135xi"]
+[ext_resource type="PackedScene" uid="uid://c7x4e40p5jlgy" path="res://sorciere.tscn" id="4_klkcg"]
+[ext_resource type="PackedScene" uid="uid://cvp621j86t1jk" path="res://scenes/balle/mini_boss.tscn" id="5_vstqu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jirdo"]
 texture = ExtResource("1_135xi")
@@ -20,6 +22,11 @@ physics_layer_0/collision_layer = 3
 physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_jirdo")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_ssvtb"]
+vertices = PackedVector2Array(759.8594, 1191.1563, -124.92969, 1205.8281, -117.046875, -119.953125, 753.8594, 762, 1105.0938, 204.09375, 1102.0938, -118.97656, 1968.0781, -118.00781, 1978.9063, 1208.0313, 1098, 1210.9609, 1098, 762, 759.1875, 200.90625, 696.6094, -53, 754.1875, -53, 692.6094, -116.03906)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(4, 5, 6, 7), PackedInt32Array(4, 7, 8, 9), PackedInt32Array(10, 4, 9, 3), PackedInt32Array(10, 3, 2, 11), PackedInt32Array(11, 12, 10), PackedInt32Array(2, 13, 11)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-127, -130, 702, -126, 706, -63, 764, -63, 769, 191, 1095, 194, 1092, -129, 1978, -128, 1989, 1218, 1088, 1221, 1088, 966, 1088, 772, 764, 772, 770, 1201, -135, 1216)])
+
 [node name="LevelPrototype" type="Node2D" unique_id=684571518]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=899372696]
@@ -35,3 +42,21 @@ editor_only = true
 
 [node name="ennemi" parent="." unique_id=504666815 instance=ExtResource("3_135xi")]
 position = Vector2(1536, 248)
+
+[node name="ennemi2" parent="." unique_id=385865780 instance=ExtResource("4_klkcg")]
+position = Vector2(462, 197)
+
+[node name="murs" type="NavigationObstacle2D" parent="." unique_id=1621230884]
+vertices = PackedVector2Array(259, 765, 385, 768, 386, -1, 454, -1, 452, -64, 579, -62, 578, -129, 254, -127)
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=1944417629]
+vertices = PackedVector2Array(1533, 1020, 1533, 315, 1599, 317, 1601, 1025)
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=684145136]
+navigation_polygon = SubResource("NavigationPolygon_ssvtb")
+
+[node name="NavigationObstacle2D2" type="NavigationObstacle2D" parent="." unique_id=1647476143]
+vertices = PackedVector2Array(1086, 699, 1090, 251, 760, 254, 760, 690)
+
+[node name="ennemi_à_pompe" parent="." unique_id=552351181 instance=ExtResource("5_vstqu")]
+position = Vector2(53, 797)

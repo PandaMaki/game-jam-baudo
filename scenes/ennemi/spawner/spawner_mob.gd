@@ -9,8 +9,7 @@ func _ready() -> void:
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	game.vrai_mort.connect(_on_game_vrai_mort)
+
 
 func spawn():
 	var ennemi = ennemi_scene.instantiate()
