@@ -1,16 +1,32 @@
 [gd_scene format=3 uid="uid://qldw30hk181s"]
 
 [ext_resource type="Script" uid="uid://bjawr7dnyvm2g" path="res://scenes/balle/balle.gd" id="1_2m6f2"]
-
-[sub_resource type="Gradient" id="Gradient_md1jc"]
-offsets = PackedFloat32Array(0)
-colors = PackedColorArray(1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_clr57"]
-gradient = SubResource("Gradient_md1jc")
+[ext_resource type="Texture2D" uid="uid://bn3itc1117n88" path="res://assets/tiles/gun/Balle.png" id="2_vrdib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
 size = Vector2(24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr5jv"]
+atlas = ExtResource("2_vrdib")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_shrj5"]
+atlas = ExtResource("2_vrdib")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_clr57"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr5jv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_shrj5")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Balle" type="Area2D" unique_id=146140346]
 collision_layer = 8
@@ -18,16 +34,18 @@ collision_mask = 2
 script = ExtResource("1_2m6f2")
 metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1959880360]
-position = Vector2(12, 0)
-scale = Vector2(0.09375, 16)
-texture = SubResource("GradientTexture1D_clr57")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56978444]
 position = Vector2(12, 0)
 shape = SubResource("RectangleShape2D_clr57")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1955384084]
 rect = Rect2(0, -8, 24, 16)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=835876703]
+position = Vector2(15, 0)
+rotation = 1.5707964
+scale = Vector2(1.8, 1.8)
+sprite_frames = SubResource("SpriteFrames_clr57")
+autoplay = "default"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
