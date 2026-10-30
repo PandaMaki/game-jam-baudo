@@ -1,35 +1,115 @@
 [gd_scene format=3 uid="uid://bbe4nir0gwi58"]
 
 [ext_resource type="Script" uid="uid://dknmuwnjgy8ap" path="res://scenes/UI/level_chooser.gd" id="1_0bc33"]
+[ext_resource type="Texture2D" uid="uid://bgrdjftjvhna1" path="res://assets/murs.png" id="2_rax0s"]
+[ext_resource type="FontFile" uid="uid://buq4j6ecnp07l" path="res://assets/fonts/Computer Speak v0.3.ttf" id="3_pqewl"]
 
 [node name="LevelChooser" type="CanvasLayer" unique_id=162894512]
 script = ExtResource("1_0bc33")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1292223711]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=972677596]
+offset_left = -19.0
+offset_top = -48.0
+offset_right = 1194.0
+offset_bottom = 657.0
+color = Color(0.54509807, 0.3529412, 0.16862746, 1)
+
+[node name="background_button_4" type="ColorRect" parent="." unique_id=419099089]
+offset_left = 2.0
+offset_top = 18.0
+offset_right = 213.0
+offset_bottom = 127.0
+color = Color(0, 0, 0, 1)
+
+[node name="retour_menu" type="Button" parent="." unique_id=274326872]
+offset_left = 17.0
+offset_top = 21.0
+offset_right = 193.0
+offset_bottom = 119.0
+theme_override_fonts/font = ExtResource("3_pqewl")
+theme_override_font_sizes/font_size = 50
+text = "MENU"
+flat = true
+
+[node name="ColorRect" type="Sprite2D" parent="." unique_id=610065809]
+position = Vector2(-475.99994, 1165)
+scale = Vector2(41.093754, 12.734374)
+texture = ExtResource("2_rax0s")
+
+[node name="Label" type="Label" parent="." unique_id=496418435]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -256.0
-offset_top = -324.0
-offset_right = 256.0
-offset_bottom = 324.0
+offset_left = -156.0
+offset_top = -205.0
+offset_right = 191.0
+offset_bottom = -26.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+theme_override_fonts/font = ExtResource("3_pqewl")
+theme_override_font_sizes/font_size = 100
+text = "LEVELS"
 
-[node name="PrototypeLevelButton" type="Button" parent="VBoxContainer" unique_id=186062152]
-layout_mode = 2
+[node name="background_button_1" type="ColorRect" parent="." unique_id=83354075]
+offset_left = 25.0
+offset_top = 453.0
+offset_right = 331.0
+offset_bottom = 562.0
+color = Color(0, 0, 0, 1)
+
+[node name="background_button_2" type="ColorRect" parent="." unique_id=1127544092]
+offset_left = 405.0
+offset_top = 453.0
+offset_right = 741.0
+offset_bottom = 562.0
+color = Color(0, 0, 0, 1)
+
+[node name="background_button_3" type="ColorRect" parent="." unique_id=281969573]
+offset_left = 894.0
+offset_top = 453.0
+offset_right = 1125.0
+offset_bottom = 562.0
+color = Color(0, 0, 0, 1)
+
+[node name="PrototypeLevelButton" type="Button" parent="." unique_id=186062152]
+offset_left = 46.0
+offset_top = 432.0
+offset_right = 294.0
+offset_bottom = 585.0
+theme_override_fonts/font = ExtResource("3_pqewl")
+theme_override_font_sizes/font_size = 50
 text = "Prototype"
+flat = true
 
-[node name="Prototype2LevelButton" type="Button" parent="VBoxContainer" unique_id=967897188]
-layout_mode = 2
+[node name="Prototype2LevelButton" type="Button" parent="." unique_id=967897188]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -166.0
+offset_top = 135.0
+offset_right = 166.0
+offset_bottom = 233.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_pqewl")
+theme_override_font_sizes/font_size = 50
 text = "Prototype 2"
+flat = true
 
-[node name="GameButton" type="Button" parent="VBoxContainer" unique_id=1751470122]
-layout_mode = 2
+[node name="GameButton" type="Button" parent="." unique_id=1751470122]
+offset_left = 945.0
+offset_top = 460.0
+offset_right = 1085.0
+offset_bottom = 558.0
+theme_override_fonts/font = ExtResource("3_pqewl")
+theme_override_font_sizes/font_size = 50
 text = "Game"
+flat = true
 
-[connection signal="pressed" from="VBoxContainer/PrototypeLevelButton" to="." method="_on_prototype_level_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Prototype2LevelButton" to="." method="_on_prototype_2_level_button_pressed"]
+[connection signal="button_down" from="retour_menu" to="." method="_on_retour_menu_button_down"]
+[connection signal="pressed" from="PrototypeLevelButton" to="." method="_on_prototype_level_button_pressed"]
+[connection signal="pressed" from="Prototype2LevelButton" to="." method="_on_prototype_2_level_button_pressed"]
