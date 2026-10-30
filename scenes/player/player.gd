@@ -13,6 +13,7 @@ signal mort
 @export var duree_deplacement = 0.08
 @export var vie_max = 100
 var vie = 100
+var position_depart = Vector2.ZERO
 
 # Vrai pendant l'animation : empêche de lancer un 2e déplacement en même temps
 var en_mouvement = false
@@ -20,7 +21,7 @@ var en_mouvement = false
 var tween_light = create_tween()
 
 func _ready():
-	#lumière allumée
+	position_depart = global_position
 	var tween = create_tween()
 	tween.tween_property($PointLight2D, "texture_scale", 10.0, 0.2)
 	$CanvasLayer/barre_de_vie.max_value = vie_max
@@ -91,4 +92,7 @@ func _on_timer_noir_timeout() -> void:
 
 func _process(delta: float) -> void:
 	if vie <= 0:
+		global_position = position_depart
 		die()
+		vie = 100
+		$CanvasLayer/barre_de_vie.value = vie

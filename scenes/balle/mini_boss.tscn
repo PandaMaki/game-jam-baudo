@@ -51,5 +51,13 @@ rotation = -1.5707964
 position = Vector2(-1, 40)
 rotation = -1.5707964
 
+[node name="chauffage" type="Timer" parent="." unique_id=1472660935]
+wait_time = 10.0
+
+[node name="jsp" type="Timer" parent="." unique_id=1161137008]
+wait_time = 5.0
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="chauffage" to="." method="_on_chauffage_timeout"]
+[connection signal="timeout" from="jsp" to="." method="_on_jsp_timeout"]

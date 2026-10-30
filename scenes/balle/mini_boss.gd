@@ -5,8 +5,10 @@ const JUMP_VELOCITY = -400.0
 var cible = null
 var dead = false
 var peut_tirer = true
+var chauffement = false
 var vie = 1000
-
+func _ready() -> void:
+	$chauffage.start()
 func prendre_degat(degat):
 	vie -= degat
 
@@ -21,7 +23,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 	if $visée.is_colliding():
 		var touche = $visée.get_collider()
-		if touche != null and touche.is_in_group("player") and peut_tirer:
+		if touche != null and touche.is_in_group("player") and peut_tirer and not chauffement:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 			velocity.y = move_toward(velocity.y, 0, SPEED)
 			$fusil_à_pompe.shoot()
@@ -55,3 +57,16 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	peut_tirer = true
+
+
+func _on_chauffage_timeout() -> void:
+	if not chauffement:
+		chauffement = true
+		$chauffage.stop()
+		$jsp.start()
+
+
+func _on_jsp_timeout() -> void:
+	chauffement = false
+	$jsp.stop()
+	$chauffage.start()
