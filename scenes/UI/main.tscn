@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://4dmik4ep8dj4" path="res://game.tscn" id="3_orlg7"]
 [ext_resource type="PackedScene" uid="uid://dfqivb6uxhh11" path="res://game_over.tscn" id="4_5paq6"]
 [ext_resource type="PackedScene" uid="uid://bbe4nir0gwi58" path="res://scenes/UI/level_chooser.tscn" id="5_orlg7"]
-[ext_resource type="PackedScene" uid="uid://djknqi38sf5lv" path="res://scenes/credit/crédit.tscn" id="6_a7jsp"]
 
 [node name="main" type="Node" unique_id=1513849039]
 script = ExtResource("1_xc5wj")
@@ -20,9 +19,6 @@ process_mode = 2
 
 [node name="LevelChooser" parent="." unique_id=162894512 instance=ExtResource("5_orlg7")]
 process_mode = 2
-
-[node name="crédit" parent="." unique_id=241431223 instance=ExtResource("6_a7jsp")]
-visible = false
 
 [connection signal="commencer" from="menu" to="." method="_on_menu_commencer"]
 [connection signal="vrai_mort" from="game" to="." method="_on_game_vrai_mort"]
