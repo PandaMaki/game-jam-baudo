@@ -12,7 +12,7 @@ func tirer():
 	new_ball.rotation = rotation
 	
 	get_tree().current_scene.add_child(new_ball)
-	
+	print("Scène actuelle : ", get_tree().current_scene.scene_file_path)
 func _unhandled_input(event: InputEvent):
 	if Input.is_action_just_pressed("shoot"):
 		tirer()
