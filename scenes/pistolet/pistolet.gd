@@ -5,6 +5,11 @@ var balle = preload("res://scenes/balle/balle.tscn")
 func _process(delta: float):
 	look_at(get_global_mouse_position())
 	
+	if cos(rotation) < 0:
+		$Sprite2D.flip_v = true
+	else:
+		$Sprite2D.flip_v = false
+	
 func tirer():
 	var new_ball = balle.instantiate()
 	

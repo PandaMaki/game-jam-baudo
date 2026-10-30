@@ -4,24 +4,13 @@
 [ext_resource type="Texture2D" uid="uid://bn3itc1117n88" path="res://assets/tiles/gun/Balle.png" id="2_vrdib"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_clr57"]
-size = Vector2(24, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wr5jv"]
-atlas = ExtResource("2_vrdib")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_shrj5"]
-atlas = ExtResource("2_vrdib")
-region = Rect2(16, 0, 16, 16)
+size = Vector2(17, 12)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_clr57"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_wr5jv")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_shrj5")
+"texture": ExtResource("2_vrdib")
 }],
 "loop": 1,
 "name": &"default",
@@ -35,15 +24,14 @@ script = ExtResource("1_2m6f2")
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=56978444]
-position = Vector2(12, 0)
+position = Vector2(8.5, 0)
 shape = SubResource("RectangleShape2D_clr57")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1955384084]
 rect = Rect2(0, -8, 24, 16)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=835876703]
-position = Vector2(15, 0)
-rotation = 1.5707964
+position = Vector2(8.000001, 0)
 scale = Vector2(1.8, 1.8)
 sprite_frames = SubResource("SpriteFrames_clr57")
 autoplay = "default"
