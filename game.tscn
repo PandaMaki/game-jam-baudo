@@ -21,7 +21,7 @@ parsed_geometry_type = 0
 script = ExtResource("1_ryrav")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=177255385]
-position = Vector2(523.9999, 276)
+position = Vector2(0, 1)
 scale = Vector2(9.468749, 1336)
 texture = SubResource("GradientTexture1D_ssvtb")
 
