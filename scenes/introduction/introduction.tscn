@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dsciv8pi8u0si"]
+
+[ext_resource type="Script" uid="uid://r5h4amdcq033" path="res://scenes/introduction/introduction.gd" id="1_1fv16"]
+[ext_resource type="FontFile" uid="uid://buq4j6ecnp07l" path="res://assets/fonts/Computer Speak v0.3.ttf" id="1_pbq1p"]
+
+[node name="Introduction" type="CanvasLayer" unique_id=1605358220]
+script = ExtResource("1_1fv16")
+
+[node name="Background" type="ColorRect" parent="." unique_id=7328874]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=360459188]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="LabelTexte" type="Label" parent="CenterContainer" unique_id=925990280]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_pbq1p")
+theme_override_font_sizes/font_size = 32
+text = "gratte... gratte..."
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=426248163]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="Timer" type="Timer" parent="." unique_id=781101486]
+wait_time = 2.0
+autostart = true

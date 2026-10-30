@@ -11,6 +11,7 @@ var vie = 250
 
 func prendre_degat(degat):
 	vie -= degat
+	print(vie)
 
 
 

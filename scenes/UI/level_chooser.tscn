@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bbe4nir0gwi58"]
 
 [ext_resource type="Script" uid="uid://dknmuwnjgy8ap" path="res://scenes/UI/level_chooser.gd" id="1_0bc33"]
+[ext_resource type="FontFile" uid="uid://buq4j6ecnp07l" path="res://assets/fonts/Computer Speak v0.3.ttf" id="2_cubpo"]
 
 [node name="LevelChooser" type="CanvasLayer" unique_id=162894512]
 script = ExtResource("1_0bc33")
@@ -19,17 +20,16 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="PrototypeLevelButton" type="Button" parent="VBoxContainer" unique_id=186062152]
+[node name="IntroductionButton" type="Button" parent="VBoxContainer" unique_id=886953004]
 layout_mode = 2
-text = "Prototype"
+theme_override_fonts/font = ExtResource("2_cubpo")
+theme_override_font_sizes/font_size = 16
+text = "Introduction"
 
-[node name="Prototype2LevelButton" type="Button" parent="VBoxContainer" unique_id=967897188]
+[node name="Level1Button" type="Button" parent="VBoxContainer" unique_id=1190292182]
 layout_mode = 2
-text = "Prototype 2"
+theme_override_fonts/font = ExtResource("2_cubpo")
+text = "Niveau 1"
 
-[node name="GameButton" type="Button" parent="VBoxContainer" unique_id=1751470122]
-layout_mode = 2
-text = "Game"
-
-[connection signal="pressed" from="VBoxContainer/PrototypeLevelButton" to="." method="_on_prototype_level_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/Prototype2LevelButton" to="." method="_on_prototype_2_level_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/IntroductionButton" to="." method="_on_introduction_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Level1Button" to="." method="_on_level_1_button_pressed"]

@@ -2,23 +2,24 @@ extends CanvasLayer
 
 var instance_jeu = null
 
-const LEVEL_PROTYPE_2 = preload("res://levels/level_prototype2/level_prototype_2.tscn")
-const LEVEL_PROTYPE = preload("res://levels/level_prototype.tscn")
+const LEVEL_1 = preload("res://levels/level_1.tscn")
+const INTRODUCTION = preload("res://scenes/introduction/introduction.tscn")
 
 
-func _on_prototype_2_level_button_pressed():
-	instance_jeu = LEVEL_PROTYPE_2.instantiate()
+func _on_level_1_button_pressed():
+	instance_jeu = LEVEL_1.instantiate()
+	get_tree().root.add_child(instance_jeu)
+	
+	get_tree().current_scene = instance_jeu
+	get_tree().paused = false
+	
+	queue_free()
+
+func _on_introduction_button_pressed():
+	instance_jeu = INTRODUCTION.instantiate()
 	get_tree().root.add_child(instance_jeu)
 	
 	hide()
-	get_tree().paused = false
-	get_node("../game/Player").queue_free()
-
-
-func _on_prototype_level_button_pressed():
-	instance_jeu = LEVEL_PROTYPE.instantiate()
-	get_tree().root.add_child(instance_jeu)
+	get_tree().current_scene = instance_jeu
 	
-	hide()
 	get_tree().paused = false
-	get_node("../game/Player").queue_free()
