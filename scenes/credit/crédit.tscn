@@ -24,15 +24,12 @@ offset_bottom = 324.0
 theme_override_font_sizes/font_size = 60
 text = "les noms ici"
 
-[node name="Button" type="Button" parent="." unique_id=754031209]
-offset_left = 19.0
-offset_top = 45.0
-offset_right = 154.0
-offset_bottom = 143.0
+[node name="Button" type="Button" parent="." unique_id=1707448121]
+offset_right = 8.0
+offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("2_751go")
 theme_override_font_sizes/font_size = 50
-text = "MENU
-"
+text = "MENU"
 flat = true
 
-[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
