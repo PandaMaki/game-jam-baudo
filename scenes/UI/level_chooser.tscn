@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://bbe4nir0gwi58"]
 
 [ext_resource type="Script" uid="uid://dknmuwnjgy8ap" path="res://scenes/UI/level_chooser.gd" id="1_0bc33"]
-[ext_resource type="Texture2D" uid="uid://bgrdjftjvhna1" path="res://assets/murs.png" id="2_rax0s"]
 [ext_resource type="FontFile" uid="uid://buq4j6ecnp07l" path="res://assets/fonts/Computer Speak v0.3.ttf" id="3_pqewl"]
 
 [node name="LevelChooser" type="CanvasLayer" unique_id=162894512]
@@ -30,11 +29,6 @@ theme_override_fonts/font = ExtResource("3_pqewl")
 theme_override_font_sizes/font_size = 50
 text = "MENU"
 flat = true
-
-[node name="ColorRect" type="Sprite2D" parent="." unique_id=610065809]
-position = Vector2(-475.99994, 1165)
-scale = Vector2(41.093754, 12.734374)
-texture = ExtResource("2_rax0s")
 
 [node name="Label" type="Label" parent="." unique_id=496418435]
 anchors_preset = 8
