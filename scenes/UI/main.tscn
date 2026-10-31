@@ -3,10 +3,15 @@
 [ext_resource type="Script" uid="uid://c1waq1sa70grj" path="res://scenes/UI/main.gd" id="1_xc5wj"]
 [ext_resource type="PackedScene" uid="uid://dgw82nlc3vg7k" path="res://scenes/UI/menu.tscn" id="2_5paq6"]
 [ext_resource type="PackedScene" uid="uid://dfqivb6uxhh11" path="res://game_over.tscn" id="4_5paq6"]
+[ext_resource type="PackedScene" uid="uid://djknqi38sf5lv" path="res://scenes/credit/crédit.tscn" id="5_a7jsp"]
 [ext_resource type="PackedScene" uid="uid://bbe4nir0gwi58" path="res://scenes/UI/level_chooser.tscn" id="5_orlg7"]
 
 [node name="main" type="Node" unique_id=1513849039]
 script = ExtResource("1_xc5wj")
+
+[node name="crédit" parent="." unique_id=241431223 instance=ExtResource("5_a7jsp")]
+process_mode = 2
+visible = false
 
 [node name="menu" parent="." unique_id=140419384 instance=ExtResource("2_5paq6")]
 process_mode = 2
