@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://d01dmi721ybmj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_clr57"]
+radius = 24.0
+
+[node name="FinNiveaux" type="Area2D" unique_id=1722305063]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2027264522]
+shape = SubResource("CircleShape2D_clr57")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085632070]

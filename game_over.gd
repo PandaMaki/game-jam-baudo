@@ -12,4 +12,10 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
-	emit_signal("restart")
+	hide()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/UI/level_chooser.tscn")
+
+
+func _on_button_2_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/UI/main.tscn")

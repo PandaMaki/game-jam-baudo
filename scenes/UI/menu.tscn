@@ -12,7 +12,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.52235776, 0.3882784, 0.2243315, 1)
+color = Color(0.52156866, 0.3882353, 0.22352941, 1)
 
 [node name="start" type="Button" parent="." unique_id=1837189026]
 offset_left = 376.0
