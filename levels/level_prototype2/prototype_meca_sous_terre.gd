@@ -4,6 +4,7 @@ var sous_terre : bool = false
 var can_dig : bool = false
 var under_rock : bool = false
 var point_sonar = 2
+var able = true
 
 @onready var player: player = $Player
 @onready var point_light_2d: PointLight2D = $Player/PointLight2D
@@ -11,10 +12,12 @@ var point_sonar = 2
 @onready var carte_vue_sur_terre: TileMapLayer = $VueSurTerre
 @onready var sonar_light: PointLight2D = $Player/PointLight2D2
 @onready var sonar_restant: Label = $Player/SonarRestant
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Player/AudioStreamPlayer2D
 
 
 
 func _ready() -> void:
+	audio_stream_player_2d.play()
 	point_light_2d.visible = true
 	carte_vue_sur_terre.visible = true
 	carte_vue_sous_terre.visible = false
@@ -42,8 +45,9 @@ func _process(delta: float) -> void:
 			carte_vue_sous_terre.visible = true
 	if Input.is_action_just_pressed("sonar"):
 		if point_sonar > 0 :
-			sonar_zone_activation()
-			point_sonar -= 1
+			if sous_terre :
+				sonar_zone_activation()
+				point_sonar -= 1
 	sonar_restant.text = str(point_sonar)
 
 
@@ -70,3 +74,9 @@ func sonar_zone_activation():
 		await get_tree().create_timer(0.2).timeout
 	if sonar_light.texture_scale == 11 :
 		sonar_light.texture_scale = 1
+
+func _on_zone_sonar_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		if able:
+			point_sonar = 2
+			able = false

@@ -4,7 +4,7 @@ extends CanvasLayer
 var instance_jeu = null
 
 const LEVEL_1 = preload("res://levels/level_1.tscn")
-const LEVEL_2 = preload("res://levels/level_prototype2/prototype_meca_sous_terre.tscn")
+const ARCADE = preload("res://levels/level_prototype2/prototype_meca_sous_terre.tscn")
 const INTRODUCTION = preload("res://scenes/introduction/introduction.tscn")
 
 
