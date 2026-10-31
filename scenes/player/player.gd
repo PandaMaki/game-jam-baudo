@@ -15,6 +15,9 @@ signal mort
 var vie = 100
 var position_depart = Vector2.ZERO
 
+func fin():
+	get_tree().change_scene_to_file("res://game_over.tscn")
+
 # Vrai pendant l'animation : empêche de lancer un 2e déplacement en même temps
 var en_mouvement = false
 
@@ -53,6 +56,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func die():
 	emit_signal("mort")
+	fin()
 
 func essayer_deplacer(dir: Vector2) -> void:
 	var mouvement = dir * taille_case

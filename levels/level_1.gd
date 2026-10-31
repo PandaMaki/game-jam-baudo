@@ -10,6 +10,3 @@ func _on_player_sous_sol() -> void:
 	print("sous sol")
 	$Surface.enabled = false
 	$SousSol.enabled = true
-	
-func _on_player_mort() -> void:
-	emit_signal("vrai_mort")

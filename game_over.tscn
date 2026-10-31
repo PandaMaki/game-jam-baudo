@@ -1,24 +1,44 @@
 [gd_scene format=3 uid="uid://dfqivb6uxhh11"]
 
 [ext_resource type="Script" uid="uid://dek8y5cumb040" path="res://game_over.gd" id="1_y26ei"]
+[ext_resource type="FontFile" uid="uid://buq4j6ecnp07l" path="res://assets/fonts/Computer Speak v0.3.ttf" id="2_yxx3c"]
 
 [node name="game_over" type="CanvasLayer" unique_id=938645877]
 script = ExtResource("1_y26ei")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1880608209]
+offset_right = 1148.0
+offset_bottom = 646.0
+color = Color(0.52156866, 0.3882353, 0.22352941, 1)
 
 [node name="Label" type="Label" parent="." unique_id=926284303]
 offset_left = 254.0
 offset_top = 30.0
 offset_right = 560.0
 offset_bottom = 82.0
+theme_override_fonts/font = ExtResource("2_yxx3c")
 theme_override_font_sizes/font_size = 113
 text = "GAME OVER "
 
 [node name="Button" type="Button" parent="." unique_id=1756518116]
-offset_left = 401.0
-offset_top = 317.0
-offset_right = 741.0
-offset_bottom = 475.0
+offset_left = 399.0
+offset_top = 227.0
+offset_right = 739.0
+offset_bottom = 385.0
+theme_override_fonts/font = ExtResource("2_yxx3c")
 theme_override_font_sizes/font_size = 60
-text = "RESTART?"
+text = "RESTART"
+flat = true
+
+[node name="Button2" type="Button" parent="." unique_id=1095841085]
+offset_left = 415.0
+offset_top = 401.0
+offset_right = 718.0
+offset_bottom = 516.0
+theme_override_fonts/font = ExtResource("2_yxx3c")
+theme_override_font_sizes/font_size = 60
+text = "MENU"
+flat = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
