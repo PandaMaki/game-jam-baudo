@@ -31,14 +31,18 @@ flat = true
 
 [node name="Label" type="Label" parent="." unique_id=1591491259]
 offset_left = 238.0
-offset_top = 92.0
+offset_top = 141.0
 offset_right = 875.0
-offset_bottom = 199.0
+offset_bottom = 494.0
 theme_override_fonts/font = ExtResource("2_751go")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 32
 text = "Lenoob974(CLEMENT)
 Lerat
-LeMaki"
+LeMaki
+ulrich2099
+ARTANIS
+Aless
+Glouir"
 horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=409805324]
