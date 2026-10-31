@@ -43,7 +43,6 @@ ulrich2099
 ARTANIS
 Aless
 Glouir"
-horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=409805324]
 process_mode = 3
