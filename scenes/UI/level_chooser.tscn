@@ -6,7 +6,6 @@
 [node name="LevelChooser" type="CanvasLayer" unique_id=162894512]
 script = ExtResource("1_0bc33")
 
-<<<<<<< HEAD
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1495740661]
 offset_right = 1147.0
 offset_bottom = 647.0
@@ -22,23 +21,7 @@ offset_left = -256.0
 offset_top = -324.0
 offset_right = 256.0
 offset_bottom = 324.0
-=======
-[node name="ColorRect" type="ColorRect" parent="." unique_id=831373287]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
->>>>>>> 6d0b4324306c1bb21fd5d5bd0f949103b2a73e6e
 grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.3950459, 0.2995026, 0.1413089, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1292223711]
-anchors_preset = 4
-anchor_top = 0.5
-anchor_bottom = 0.5
-offset_top = -324.0
-offset_right = 512.0
-offset_bottom = 324.0
 grow_vertical = 2
 alignment = 1
 
@@ -47,13 +30,11 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cubpo")
 theme_override_font_sizes/font_size = 16
 text = "Introduction"
-flat = true
 
 [node name="Level1Button" type="Button" parent="VBoxContainer" unique_id=1190292182]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_cubpo")
 text = "Niveau 1"
-flat = true
 
 [connection signal="pressed" from="VBoxContainer/IntroductionButton" to="." method="_on_introduction_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
