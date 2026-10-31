@@ -25,7 +25,7 @@ func _process(delta: float) -> void:
 			player.collision_layer = 1
 			player.collision_mask = 1
 			sous_terre = false
-			point_light_2d.visible = false
+			point_light_2d.visible = true
 			carte_vue_sous_terre.visible = false
 			carte_vue_sur_terre.visible = true
 			
@@ -34,7 +34,7 @@ func _process(delta: float) -> void:
 			player.collision_layer = 2
 			player.collision_mask = 2
 			sous_terre = true
-			point_light_2d.visible = true
+			point_light_2d.visible = false
 			carte_vue_sur_terre.visible = false
 			carte_vue_sous_terre.visible = true
 
