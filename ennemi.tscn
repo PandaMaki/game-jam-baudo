@@ -2,14 +2,8 @@
 
 [ext_resource type="Script" uid="uid://r8xiupg4xkfb" path="res://scenes/ennemi/ennemi.gd" id="1_m0ij1"]
 [ext_resource type="AudioStream" uid="uid://dkpkdtk2bvg0o" path="res://sound_effect/501108__evretro__8-bit-gunshot.wav" id="2_5npyw"]
+[ext_resource type="Texture2D" uid="uid://cmcwr00ncdpkl" path="res://assets/tile_0012.png" id="2_527yo"]
 [ext_resource type="PackedScene" uid="uid://dt2edqh8galbi" path="res://scenes/pistolet/pistolet_ennemi.tscn" id="3_qswgi"]
-
-[sub_resource type="Gradient" id="Gradient_5npyw"]
-offsets = PackedFloat32Array(0.012048192, 1)
-colors = PackedColorArray(1, 0, 0, 1, 1, 0, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_ssvtb"]
-gradient = SubResource("Gradient_5npyw")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssvtb"]
 size = Vector2(74, 65)
@@ -22,8 +16,9 @@ collision_layer = 2
 script = ExtResource("1_m0ij1")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
-scale = Vector2(0.28515625, 65)
-texture = SubResource("GradientTexture1D_ssvtb")
+position = Vector2(-3.33786e-06, 1.1324883e-06)
+scale = Vector2(4.1666665, 3.3333335)
+texture = ExtResource("2_527yo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1966610797]
 position = Vector2(0, 0.5)
