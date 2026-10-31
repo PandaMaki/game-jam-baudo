@@ -27,6 +27,7 @@ layout_mode = 2
 theme_override_fonts/font = ExtResource("1_pbq1p")
 theme_override_font_sizes/font_size = 32
 text = "gratte... gratte..."
+horizontal_alignment = 1
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=426248163]
 offset_right = 1152.0

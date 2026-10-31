@@ -7,6 +7,7 @@
 radius = 11.0
 
 [node name="FinNiveaux" type="Area2D" unique_id=1722305063]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_eeoo8")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085632070]
