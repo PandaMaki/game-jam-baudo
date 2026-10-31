@@ -41,5 +41,12 @@ theme_override_fonts/font = ExtResource("2_cubpo")
 text = "Niveau 1"
 flat = true
 
+[node name="Arcade" type="Button" parent="VBoxContainer" unique_id=129176020]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_cubpo")
+text = "ARCADE"
+flat = true
+
 [connection signal="pressed" from="VBoxContainer/IntroductionButton" to="." method="_on_introduction_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/Level1Button" to="." method="_on_level_1_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Arcade" to="." method="_on_arcade_pressed"]
