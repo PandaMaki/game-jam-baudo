@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://ciao0wult73xk"]
 
 [ext_resource type="Script" uid="uid://p00at8xq3xjg" path="res://lance_flamme.gd" id="1_a0f74"]
+[ext_resource type="AudioStream" uid="uid://bbu1pnbyl5h2b" path="res://sound_effect/569253__nakhas__fire-constant-strong-synthetized (1).wav" id="2_r8udy"]
 
 [sub_resource type="Gradient" id="Gradient_r8udy"]
 
@@ -21,5 +22,9 @@ target_position = Vector2(64, 0)
 [node name="Timer" type="Timer" parent="." unique_id=611272257]
 wait_time = 0.05
 autostart = true
+
+[node name="flamme" type="AudioStreamPlayer2D" parent="." unique_id=674103771]
+stream = ExtResource("2_r8udy")
+volume_db = 2.0
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

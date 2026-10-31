@@ -19,7 +19,11 @@ var position_depart = Vector2.ZERO
 var en_mouvement = false
 
 var tween_light = create_tween()
-
+func animation():
+	var tween = create_tween()
+	tween.tween_property($AnimatedSprite2D , "modulate" , Color.RED , 0.1)
+	tween.tween_property($AnimatedSprite2D , "modulate" , Color.WHITE, 0.2)
+	$hit.play()
 func _ready():
 	position_depart = global_position
 	var tween = create_tween()
@@ -30,7 +34,7 @@ func _ready():
 func prendre_degat(degat):
 	vie -= degat
 	$CanvasLayer/barre_de_vie.value = vie
-
+	animation()
 func _unhandled_input(event: InputEvent) -> void:
 	if en_mouvement:
 		return

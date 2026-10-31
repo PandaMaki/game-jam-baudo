@@ -11,12 +11,17 @@ var ennemi_rapide = preload("res://ennemi_rapide.tscn")
 var ennemies_utilisé : Array[Marker2D] = []
 var peut_tirer = true
 var vie = 300
-
+func animation():
+	var tween = create_tween()
+	tween.tween_property($Sprite2D , "modulate" , Color.RED , 0.1)
+	tween.tween_property($Sprite2D , "modulate" , Color.WHITE, 0.2)
+	$hit.play()
 func _ready() -> void:
 	$invocation_timer.start()
 
 func prendre_degat(degat):
 	vie -= degat
+	animation()
 
 
 

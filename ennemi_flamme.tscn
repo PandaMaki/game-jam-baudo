@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu68mvobn3mgd" path="res://ennemi_flamme.gd" id="1_wsk00"]
 [ext_resource type="PackedScene" uid="uid://ciao0wult73xk" path="res://lance_flamme.tscn" id="2_gagpo"]
+[ext_resource type="AudioStream" uid="uid://m1cm5wg6f2c8" path="res://sound_effect/391668__jeckkech__hit (1).wav" id="3_qoxos"]
 
 [sub_resource type="Gradient" id="Gradient_5npyw"]
 offsets = PackedFloat32Array(0.012048192, 1)
@@ -47,6 +48,9 @@ one_shot = true
 
 [node name="lance_flamme" parent="." unique_id=812841894 instance=ExtResource("2_gagpo")]
 position = Vector2(61, 0)
+
+[node name="hit" type="AudioStreamPlayer2D" parent="." unique_id=1534906906]
+stream = ExtResource("3_qoxos")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cpm0dlinpq34y"]
 
-[ext_resource type="Script" uid="uid://r8xiupg4xkfb" path="res://scenes/ennemi/ennemi.gd" id="1_f5v6c"]
+[ext_resource type="Script" uid="uid://c4150s7f8abpi" path="res://soigneur.gd" id="1_11r5h"]
+[ext_resource type="AudioStream" uid="uid://m1cm5wg6f2c8" path="res://sound_effect/391668__jeckkech__hit (1).wav" id="2_11r5h"]
 
 [sub_resource type="Gradient" id="Gradient_5npyw"]
 offsets = PackedFloat32Array(0.012048192, 1)
@@ -20,7 +21,7 @@ size = Vector2(869, 735)
 
 [node name="ennemi" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
 collision_layer = 2
-script = ExtResource("1_f5v6c")
+script = ExtResource("1_11r5h")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1007100569]
 scale = Vector2(0.28515625, 65)
@@ -55,6 +56,10 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="soin" unique_id=685147073]
 position = Vector2(0.5, 1.5)
 shape = SubResource("RectangleShape2D_n2121")
+
+[node name="hit" type="AudioStreamPlayer2D" parent="." unique_id=1283984397]
+stream = ExtResource("2_11r5h")
+volume_db = 2.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

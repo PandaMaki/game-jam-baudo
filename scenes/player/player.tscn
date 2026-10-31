@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cluib1hf6lw6e" path="res://assets/player tiles/mole on ground/Taupe1.png" id="4_75vfm"]
 [ext_resource type="Texture2D" uid="uid://on5s7xlgmlhp" path="res://assets/player tiles/mole sous ground/Taupe-coté1.png" id="5_75vfm"]
 [ext_resource type="Texture2D" uid="uid://b123h1kpjj41x" path="res://assets/player tiles/mole on ground/Taupe-sortie2.png" id="6_qek5x"]
+[ext_resource type="AudioStream" uid="uid://m1cm5wg6f2c8" path="res://sound_effect/391668__jeckkech__hit (1).wav" id="8_qek5x"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_je7p5"]
 atlas = ExtResource("6_qek5x")
@@ -136,5 +137,11 @@ texture = SubResource("GradientTexture2D_apd2n")
 [node name="barre_de_vie" type="ProgressBar" parent="CanvasLayer" unique_id=2080266704]
 offset_right = 128.0
 offset_bottom = 27.0
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=1669957573]
+
+[node name="hit" type="AudioStreamPlayer" parent="." unique_id=1411871233]
+stream = ExtResource("8_qek5x")
+volume_db = 2.0
 
 [connection signal="timeout" from="TimerNoir" to="." method="_on_timer_noir_timeout"]

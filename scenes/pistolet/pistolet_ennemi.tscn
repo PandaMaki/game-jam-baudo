@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://dt2edqh8galbi"]
+
+[ext_resource type="Script" uid="uid://xync4emyk8af" path="res://scenes/pistolet/pistolet_ennemi.gd" id="1_lbqud"]
+[ext_resource type="Texture2D" uid="uid://ddj6tieawwk3y" path="res://assets/pistolet/pistolet1.png" id="2_dch11"]
+[ext_resource type="AudioStream" uid="uid://dkpkdtk2bvg0o" path="res://sound_effect/501108__evretro__8-bit-gunshot.wav" id="3_3tl23"]
+
+[node name="Pistolet" type="Node2D" unique_id=1604701422]
+script = ExtResource("1_lbqud")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=779088708]
+position = Vector2(16, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("2_dch11")
+
+[node name="shoot" type="AudioStreamPlayer" parent="." unique_id=1827964583]
+stream = ExtResource("3_3tl23")
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1488473240]
+target_position = Vector2(56, 0)

@@ -11,6 +11,7 @@ var supprimer = false
 func _process(delta: float) -> void:
 	if not flammes.is_empty() and supprimer:
 		var vieille = flammes[0]
+		$flamme.play()
 		if is_instance_valid(vieille):
 			vieille.queue_free()
 			flammes.remove_at(0)

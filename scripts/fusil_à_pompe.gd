@@ -28,3 +28,4 @@ func shoot():
 		get_tree().current_scene.add_child(new_ball)
 		directions_utilisé.append(direction)
 	directions_utilisé.clear()
+	$AudioStreamPlayer2D.play()

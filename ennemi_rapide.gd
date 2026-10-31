@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
 
-const SPEED = 500.0
+const SPEED = 350.0
 const JUMP_VELOCITY = -400.0
 var cible = null
 var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
 var peut_tirer = true
 var vie = 100
-
+func animation():
+	var tween = create_tween()
+	tween.tween_property($Sprite2D , "modulate" , Color.RED , 0.1)
+	tween.tween_property($Sprite2D , "modulate" , Color.WHITE, 0.2)
+	$hit.play()
 func prendre_degat(degat):
 	vie -= degat
+	animation()
 
 
 

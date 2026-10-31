@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://iv24j2lstkvs"]
 
 [ext_resource type="Script" uid="uid://r8xiupg4xkfb" path="res://scenes/ennemi/ennemi.gd" id="1_m0ij1"]
+[ext_resource type="AudioStream" uid="uid://dkpkdtk2bvg0o" path="res://sound_effect/501108__evretro__8-bit-gunshot.wav" id="2_5npyw"]
+[ext_resource type="PackedScene" uid="uid://dt2edqh8galbi" path="res://scenes/pistolet/pistolet_ennemi.tscn" id="3_qswgi"]
 
 [sub_resource type="Gradient" id="Gradient_5npyw"]
 offsets = PackedFloat32Array(0.012048192, 1)
@@ -42,6 +44,13 @@ target_position = Vector2(236, 1)
 [node name="Timer" type="Timer" parent="." unique_id=2145972395]
 wait_time = 0.5
 one_shot = true
+
+[node name="hit" type="AudioStreamPlayer2D" parent="." unique_id=1896255333]
+stream = ExtResource("2_5npyw")
+volume_db = 2.0
+
+[node name="Pistolet" parent="." unique_id=1604701422 instance=ExtResource("3_qswgi")]
+position = Vector2(39, 1)
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

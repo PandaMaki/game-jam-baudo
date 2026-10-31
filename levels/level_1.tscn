@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bgrdjftjvhna1" path="res://assets/murs.png" id="2_bt44k"]
 [ext_resource type="Texture2D" uid="uid://6sxj7he77xcp" path="res://assets/tiles/ground/Sols_terre.png" id="2_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="3_n46q3"]
+[ext_resource type="PackedScene" uid="uid://b5gsdgasm7jdw" path="res://ennemi_flamme.tscn" id="6_btoec"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bt44k"]
 texture = ExtResource("1_bt44k")
@@ -117,6 +118,11 @@ sources/0 = SubResource("TileSetAtlasSource_btoec")
 sources/2 = SubResource("TileSetAtlasSource_kx6l7")
 sources/1 = SubResource("TileSetAtlasSource_gwceb")
 
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_btoec"]
+vertices = PackedVector2Array(823.9531, 373, 12.921875, 373, 10.0703125, 9.96875, 822.0469, 8.0234375)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(0, 0, 3, 383, 834, 383, 832, -2)])
+
 [node name="Level 1" type="Node2D" unique_id=1107272277]
 script = ExtResource("1_n46q3")
 
@@ -140,6 +146,12 @@ limit_bottom = 416
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=1279448280]
 editor_only = true
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=201769929]
+navigation_polygon = SubResource("NavigationPolygon_btoec")
+
+[node name="ennemi" parent="." unique_id=504666815 instance=ExtResource("6_btoec")]
+position = Vector2(665, 212)
 
 [connection signal="mort" from="Player" to="." method="_on_player_mort"]
 [connection signal="sol" from="Player" to="." method="_on_player_sol"]

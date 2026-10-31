@@ -8,9 +8,16 @@ var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
 var peut_tirer = true
 var vie = 400
-
+func animation():
+	var tween = create_tween()
+	tween.tween_property($Sprite2D , "modulate" , Color.RED , 0.1)
+	tween.tween_property($Sprite2D , "modulate" , Color.WHITE, 0.2)
+	$hit.play()
 func prendre_degat(degat):
 	vie -= degat
+	print(vie)
+	print("caca")
+	animation()
 
 
 
@@ -50,7 +57,8 @@ func die():
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	cible = body
+	if body.is_in_group("player"):
+		cible = body
 
 
 

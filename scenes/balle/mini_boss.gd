@@ -7,10 +7,16 @@ var dead = false
 var peut_tirer = true
 var chauffement = false
 var vie = 1000
+func animation():
+	var tween = create_tween()
+	tween.tween_property($Sprite2D , "modulate" , Color.RED , 0.1)
+	tween.tween_property($Sprite2D , "modulate" , Color.WHITE, 0.2)
+	$hit.play()
 func _ready() -> void:
 	$chauffage.start()
 func prendre_degat(degat):
 	vie -= degat
+	animation()
 
 
 

@@ -1,16 +1,21 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 150.0
 const JUMP_VELOCITY = -400.0
 var cible = null
 var dead = false
 var balle = preload("res://scenes/balle/balle_ennemi.tscn")
 var peut_tirer = true
 var vie = 300
-
+func animation():
+	var tween = create_tween()
+	tween.tween_property($Sprite2D , "modulate" , Color.RED , 0.1)
+	tween.tween_property($Sprite2D , "modulate" , Color.WHITE, 0.2)
+	$hit.play()
 func prendre_degat(degat):
 	vie -= degat
+	animation()
 
 
 
@@ -19,8 +24,14 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if vie <= 0:
 		die()
-	# Handle jump.
-
+	if $visée.is_colliding():
+		var touche = $visée.get_collider()
+		if touche != null and touche.is_in_group("player") and peut_tirer:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.y = move_toward(velocity.y, 0, SPEED)
+			$Pistolet.shoot()
+			peut_tirer = false
+			$Timer.start()
 
 	if cible != null:
 		look_at(cible.global_position)
@@ -43,7 +54,8 @@ func die():
 	queue_free()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	cible = body
+	if body.is_in_group("player"):
+		cible = body
 func tirer():
 	var new_ball = balle.instantiate()
 	var direction = $visée
@@ -52,6 +64,7 @@ func tirer():
 	new_ball.rotation = new_ball.direction.angle()
 	
 	get_tree().current_scene.add_child(new_ball)
+	$AudioStreamPlayer2D.play()
 
 
 func _on_timer_timeout() -> void:

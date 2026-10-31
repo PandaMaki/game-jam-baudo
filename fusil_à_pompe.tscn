@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://i5hc3pi4l0ce"]
 
 [ext_resource type="Script" uid="uid://bp2aciumgklew" path="res://scripts/fusil_à_pompe.gd" id="1_fconl"]
+[ext_resource type="AudioStream" uid="uid://c8f07oxqf2pi2" path="res://sound_effect/363698__jofae__retro-gun-shot.mp3" id="2_lv3wc"]
 
 [sub_resource type="Gradient" id="Gradient_lv3wc"]
 
@@ -31,3 +32,8 @@ target_position = Vector2(2.0981465e-06, 48)
 position = Vector2(7.0000005, 16)
 scale = Vector2(0.99999994, 0.99999994)
 target_position = Vector2(19.000002, 45)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1613262594]
+position = Vector2(4.371139e-08, 1)
+stream = ExtResource("2_lv3wc")
+volume_db = 2.0
