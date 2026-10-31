@@ -44,8 +44,9 @@ func _process(delta: float) -> void:
 			carte_vue_sous_terre.visible = true
 	if Input.is_action_just_pressed("sonar"):
 		if point_sonar > 0 :
-			sonar_zone_activation()
-			point_sonar -= 1
+			if sous_terre :
+				sonar_zone_activation()
+				point_sonar -= 1
 	sonar_restant.text = str(point_sonar)
 
 
