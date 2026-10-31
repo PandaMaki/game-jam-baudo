@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://6sxj7he77xcp" path="res://assets/tiles/ground/Sols_terre.png" id="2_kx6l7"]
 [ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="3_n46q3"]
 [ext_resource type="PackedScene" uid="uid://b5gsdgasm7jdw" path="res://ennemi_flamme.tscn" id="6_btoec"]
+[ext_resource type="PackedScene" uid="uid://d01dmi721ybmj" path="res://scenes/fin_niveaux/fin_niveaux.tscn" id="7_gwceb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bt44k"]
 texture = ExtResource("1_bt44k")
@@ -154,6 +155,9 @@ navigation_polygon = SubResource("NavigationPolygon_btoec")
 [node name="ennemi" parent="." unique_id=504666815 instance=ExtResource("6_btoec")]
 position = Vector2(600, 200)
 scale = Vector2(0.5, 0.5)
+
+[node name="FinNiveaux" parent="." unique_id=1722305063 instance=ExtResource("7_gwceb")]
+position = Vector2(760, 328)
 
 [connection signal="mort" from="Player" to="." method="_on_player_mort"]
 [connection signal="sol" from="Player" to="." method="_on_player_sol"]
