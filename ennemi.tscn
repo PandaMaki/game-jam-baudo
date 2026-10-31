@@ -15,7 +15,7 @@ gradient = SubResource("Gradient_5npyw")
 size = Vector2(74, 65)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ux1y0"]
-size = Vector2(866, 731)
+size = Vector2(2051, 1407)
 
 [node name="ennemi" type="CharacterBody2D" unique_id=504666815 groups=["ennemi"]]
 collision_layer = 2
@@ -34,7 +34,7 @@ shape = SubResource("RectangleShape2D_ssvtb")
 [node name="Area2D" type="Area2D" parent="." unique_id=1730165307]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=331268232]
-position = Vector2(2, -8.5)
+position = Vector2(-4.5, -8.5)
 shape = SubResource("RectangleShape2D_ux1y0")
 
 [node name="visée" type="RayCast2D" parent="." unique_id=1691809256]
