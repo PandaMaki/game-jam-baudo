@@ -1,8 +1,12 @@
-[gd_scene format=3 uid="uid://dwjms81xv30mw"]
+[gd_scene format=4 uid="uid://dwjms81xv30mw"]
 
 [ext_resource type="Script" uid="uid://c1uo3u4tubuhk" path="res://scenes/pistolet/pistolet.gd" id="1_np1mu"]
 [ext_resource type="Texture2D" uid="uid://ddj6tieawwk3y" path="res://assets/pistolet/pistolet1.png" id="2_rbpy6"]
-[ext_resource type="AudioStream" uid="uid://datb6kl6ie4tm" path="res://assets/sounds/laserShoot(1).wav" id="3_rdn78"]
+
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_rbpy6"]
+data = PackedByteArray("cW9hZgAAA9YBACsRA9YBqAAAAAAAAAAAAAAAAOAAQAAtv9/t/t/t/t3+362/2/2/+5ndb/Z+L7j6p994vrvvDvaqaKaMs6ca8fefeN7zgXf4Xvk94PqJwuud1uoze7xe8uDqNSlP5Mb7YecDN7n7t/iXcfu1C1pV3/aVafpX/aPxt7YL3lGVI/5u57kU8WVr9o10JQBxQHjume6ngkSlE+XLJVHBBgQCx44EC1ggl1jSCIASlUcQQZH4OLEd5IBDtQEsBGlRMAiWn2FAABqeAYBDRBWarDTTfH97Agggggh/SogAAU48x3JAIIDTRIIGXr/eEEkEhphSU0RMv+sSmlYBAIJTTAN4VSNEEEEEApo/GAQQQSmiUxwuZ33zQKe8EpVXeFOOEp4fnCQinCAUUxjhBRRAARBRFEAAAAAAgBMZY0AAU0UACg+A2mwkGGQgCCKBCHARCXEMdFjpFsoNhgWwi0gywwyACTBHaZbSZTQQAACigUUU4x1ljRRACITjGEAAAJxxxoAQAAAmigmigBABRQKKAAKKEhFAoooohFEQiiimggCAig+AAAAAAAAA")
+format = 3
+mix_rate = 11025
 
 [node name="Pistolet" type="Node2D" unique_id=1604701422]
 script = ExtResource("1_np1mu")
@@ -14,4 +18,5 @@ scale = Vector2(3, 3)
 texture = ExtResource("2_rbpy6")
 
 [node name="shoot" type="AudioStreamPlayer" parent="." unique_id=1827964583]
-stream = ExtResource("3_rdn78")
+stream = SubResource("AudioStreamWAV_rbpy6")
+volume_db = -18.565
