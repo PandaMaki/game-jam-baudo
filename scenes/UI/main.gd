@@ -14,6 +14,7 @@ func _on_menu_commencer() -> void:
 
 func _on_game_over_restart() -> void:
 	$game_over.hide()
+	$LevelChooser.show()
 	get_tree().paused = false
 
 func _on_game_vrai_mort() -> void:
