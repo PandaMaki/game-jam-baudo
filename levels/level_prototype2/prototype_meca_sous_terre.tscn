@@ -5,7 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://djy6kmhwv3xfe" path="res://scenes/player/player.tscn" id="1_kvygp"]
 [ext_resource type="Texture2D" uid="uid://6sxj7he77xcp" path="res://assets/tiles/ground/Sols_terre.png" id="2_fma63"]
 [ext_resource type="Texture2D" uid="uid://bns70jfpj5dgj" path="res://assets/tiles/ground/New Piskel (3).png" id="3_sipie"]
-[ext_resource type="Texture2D" uid="uid://b6tbwa2e218on" path="res://assets/tiles/prototype/Tileset_prototype.png" id="6_sipie"]
+[ext_resource type="Texture2D" uid="uid://ntba4hmckg0n" path="res://assets/tiles/prototype/cb898387802c61c84ea79ace1446da1e.png" id="6_sipie"]
+[ext_resource type="FontFile" uid="uid://buq4j6ecnp07l" path="res://assets/fonts/Computer Speak v0.3.ttf" id="7_8tloh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fma63"]
 texture = ExtResource("1_0e1g6")
@@ -113,6 +114,10 @@ size = Vector2(32, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3gngh"]
 size = Vector2(192, 448)
 
+[sub_resource type="LabelSettings" id="LabelSettings_yf5fn"]
+font = ExtResource("7_8tloh")
+shadow_size = 0
+
 [node name="Prototype_meca_sous_terre" type="Node2D" unique_id=2004949245]
 script = ExtResource("1_fma63")
 
@@ -129,16 +134,28 @@ position = Vector2(-16, -16)
 scale = Vector2(0.5, 0.5)
 
 [node name="PointLight2D2" type="PointLight2D" parent="Player" unique_id=792703802]
+color = Color(0.40069774, 0.40069774, 0.40069768, 1)
+energy = 0.75
 texture = ExtResource("6_sipie")
+
+[node name="SonarRestant" type="Label" parent="Player" unique_id=1337574825]
+offset_right = 40.0
+offset_bottom = 49.0
+theme_override_fonts/font = ExtResource("7_8tloh")
+text = "1
+"
+horizontal_alignment = 1
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=480924285]
 visible = false
+light_mask = 4
+visibility_layer = 4
 
 [node name="ZoneDig" type="Area2D" parent="." unique_id=1367696575]
 position = Vector2(-16, -16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZoneDig" unique_id=2064498312]
-position = Vector2(-32, 0)
+position = Vector2(-30, 0)
 shape = SubResource("RectangleShape2D_g4v7s")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="ZoneDig" unique_id=1137801309]
@@ -177,6 +194,21 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ZonePierre" unique_id=1582772144]
 position = Vector2(112, 16)
 shape = SubResource("RectangleShape2D_3gngh")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1544240252]
+follow_viewport_enabled = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1212343860]
+light_mask = 4
+visibility_layer = 4
+offset_left = -279.0
+offset_top = -220.0
+offset_right = -127.0
+offset_bottom = -157.0
+text = "\"A\" pour sonar
+\"E\" pour creuser"
+label_settings = SubResource("LabelSettings_yf5fn")
+metadata/_edit_use_anchors_ = true
 
 [connection signal="body_entered" from="ZoneDig" to="." method="_on_zone_dig_body_entered"]
 [connection signal="body_exited" from="ZoneDig" to="." method="_on_zone_dig_body_exited"]

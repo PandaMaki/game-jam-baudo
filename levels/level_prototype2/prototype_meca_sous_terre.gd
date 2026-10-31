@@ -3,11 +3,14 @@ extends Node2D
 var sous_terre : bool = false
 var can_dig : bool = false
 var under_rock : bool = false
+var point_sonar = 2
 
 @onready var player: player = $Player
 @onready var point_light_2d: PointLight2D = $Player/PointLight2D
 @onready var carte_vue_sous_terre: TileMapLayer = $VueSousTerre
 @onready var carte_vue_sur_terre: TileMapLayer = $VueSurTerre
+@onready var sonar_light: PointLight2D = $Player/PointLight2D2
+@onready var sonar_restant: Label = $Player/SonarRestant
 
 
 
@@ -37,6 +40,11 @@ func _process(delta: float) -> void:
 			point_light_2d.visible = false
 			carte_vue_sur_terre.visible = false
 			carte_vue_sous_terre.visible = true
+	if Input.is_action_just_pressed("sonar"):
+		if point_sonar > 0 :
+			sonar_zone_activation()
+			point_sonar -= 1
+	sonar_restant.text = str(point_sonar)
 
 
 func _on_zone_dig_body_entered(body: Node2D) -> void:
@@ -56,3 +64,9 @@ func _on_zone_pierre_body_exited(body: Node2D) -> void:
 	if body.is_in_group("player"):
 		under_rock = false
 		print("not under rock")
+func sonar_zone_activation():
+	for i in range(10):
+		sonar_light.texture_scale += 1
+		await get_tree().create_timer(0.2).timeout
+	if sonar_light.texture_scale == 11 :
+		sonar_light.texture_scale = 1
