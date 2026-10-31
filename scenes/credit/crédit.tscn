@@ -37,7 +37,9 @@ offset_bottom = 199.0
 theme_override_fonts/font = ExtResource("2_751go")
 theme_override_font_sizes/font_size = 60
 text = "Lenoob974(CLEMENT)
-Lerat"
+Lerat
+LeMaki"
+horizontal_alignment = 1
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=409805324]
 process_mode = 3
