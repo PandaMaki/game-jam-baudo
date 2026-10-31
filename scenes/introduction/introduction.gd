@@ -25,6 +25,7 @@ func _ready():
 	await changement_et_fondu("La grotte aux lunettes! protégé par\nles gardiens des lunettes!")
 	await changement_et_fondu("Déplacez vous avec zqsd ou les flèches, quand\n vous êtes imobiles, vous êtes a la surface, mais\nune fois que vous bougez, vous êtes sous terre", 3.5)
 	await changement_et_fondu("Sous la surface, vous pouvez passer sous\n certains murs et trouver la sortie,\n mais vous ne voyez quasi rien.", 3)
+	await changement_et_fondu("appuyez sur K si vous êtes bloqué.")
 	
 	get_tree().change_scene_to_file("res://scenes/UI/level_chooser.tscn")
 	
