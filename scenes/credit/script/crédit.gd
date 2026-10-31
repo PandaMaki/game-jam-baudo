@@ -2,5 +2,4 @@ extends CanvasLayer
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://scenes/UI/menu.tscn")
-	print("change")
+	get_tree().change_scene_to_file("res://scenes/UI/main.tscn")

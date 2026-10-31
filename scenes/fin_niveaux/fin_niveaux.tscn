@@ -1,11 +1,18 @@
 [gd_scene format=3 uid="uid://d01dmi721ybmj"]
 
+[ext_resource type="Script" uid="uid://bqp0co32f6uvl" path="res://scenes/fin_niveaux/fin_niveaux.gd" id="1_eeoo8"]
+[ext_resource type="Texture2D" uid="uid://cqiqptyp168df" path="res://assets/sortie_de_niveau.png" id="1_jago3"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_clr57"]
-radius = 24.0
+radius = 11.0
 
 [node name="FinNiveaux" type="Area2D" unique_id=1722305063]
+script = ExtResource("1_eeoo8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085632070]
+texture = ExtResource("1_jago3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2027264522]
 shape = SubResource("CircleShape2D_clr57")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1085632070]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

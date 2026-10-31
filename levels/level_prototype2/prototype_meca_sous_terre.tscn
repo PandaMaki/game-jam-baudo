@@ -195,6 +195,7 @@ collision_mask = 2
 position = Vector2(112, 16)
 shape = SubResource("RectangleShape2D_3gngh")
 
+
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1544240252]
 follow_viewport_enabled = true
 
@@ -209,6 +210,10 @@ text = "\"A\" pour sonar
 \"E\" pour creuser"
 label_settings = SubResource("LabelSettings_yf5fn")
 metadata/_edit_use_anchors_ = true
+
+[node name="DirectionalLight2D2" type="DirectionalLight2D" parent="." unique_id=1523497936]
+editor_only = true
+
 
 [connection signal="body_entered" from="ZoneDig" to="." method="_on_zone_dig_body_entered"]
 [connection signal="body_exited" from="ZoneDig" to="." method="_on_zone_dig_body_exited"]
