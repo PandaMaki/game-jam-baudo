@@ -38,6 +38,11 @@ func prendre_degat(degat):
 	vie -= degat
 	$CanvasLayer/barre_de_vie.value = vie
 	animation()
+	
+func _input(event: InputEvent) -> void:
+	if Input.is_action_pressed("kill"):
+		die()
+
 func _unhandled_input(event: InputEvent) -> void:
 	if en_mouvement:
 		return

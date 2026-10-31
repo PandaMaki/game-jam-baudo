@@ -11,8 +11,10 @@ loop = true
 script = ExtResource("1_1fv16")
 
 [node name="Background" type="ColorRect" parent="." unique_id=7328874]
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_left = -72.0
+offset_top = -72.0
+offset_right = 1264.0
+offset_bottom = 792.0
 color = Color(0, 0, 0, 1)
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=360459188]
