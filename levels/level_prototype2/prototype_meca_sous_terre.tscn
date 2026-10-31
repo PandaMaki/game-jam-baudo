@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bns70jfpj5dgj" path="res://assets/tiles/ground/New Piskel (3).png" id="3_sipie"]
 [ext_resource type="Texture2D" uid="uid://ntba4hmckg0n" path="res://assets/tiles/prototype/cb898387802c61c84ea79ace1446da1e.png" id="6_sipie"]
 [ext_resource type="FontFile" uid="uid://buq4j6ecnp07l" path="res://assets/fonts/Computer Speak v0.3.ttf" id="7_8tloh"]
+[ext_resource type="AudioStream" uid="uid://dm63wioib5723" path="res://assets/sounds/null.mp3" id="8_6uwds"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fma63"]
 texture = ExtResource("1_0e1g6")
@@ -146,6 +147,12 @@ text = "1
 "
 horizontal_alignment = 1
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Player" unique_id=25586319]
+position = Vector2(32, 32)
+scale = Vector2(2, 2)
+stream = ExtResource("8_6uwds")
+parameters/looping = false
+
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="." unique_id=480924285]
 visible = false
 light_mask = 4
@@ -195,7 +202,6 @@ collision_mask = 2
 position = Vector2(112, 16)
 shape = SubResource("RectangleShape2D_3gngh")
 
-
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1544240252]
 follow_viewport_enabled = true
 
@@ -213,7 +219,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="DirectionalLight2D2" type="DirectionalLight2D" parent="." unique_id=1523497936]
 editor_only = true
-
 
 [connection signal="body_entered" from="ZoneDig" to="." method="_on_zone_dig_body_entered"]
 [connection signal="body_exited" from="ZoneDig" to="." method="_on_zone_dig_body_exited"]

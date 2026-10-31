@@ -11,10 +11,12 @@ var point_sonar = 2
 @onready var carte_vue_sur_terre: TileMapLayer = $VueSurTerre
 @onready var sonar_light: PointLight2D = $Player/PointLight2D2
 @onready var sonar_restant: Label = $Player/SonarRestant
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $Player/AudioStreamPlayer2D
 
 
 
 func _ready() -> void:
+	audio_stream_player_2d.play()
 	point_light_2d.visible = true
 	carte_vue_sur_terre.visible = true
 	carte_vue_sous_terre.visible = false
