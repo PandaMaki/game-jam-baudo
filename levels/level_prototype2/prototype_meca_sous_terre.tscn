@@ -134,6 +134,11 @@ tile_set = SubResource("TileSet_8ciup")
 position = Vector2(-16, -16)
 scale = Vector2(0.5, 0.5)
 
+[node name="Camera2D" parent="Player" index="2" unique_id=1252639716]
+limit_top = -224
+limit_right = 480
+limit_bottom = 224
+
 [node name="PointLight2D2" type="PointLight2D" parent="Player" unique_id=792703802]
 color = Color(0.40069774, 0.40069774, 0.40069768, 1)
 energy = 0.75
@@ -224,3 +229,5 @@ editor_only = true
 [connection signal="body_exited" from="ZoneDig" to="." method="_on_zone_dig_body_exited"]
 [connection signal="body_entered" from="ZonePierre" to="." method="_on_zone_pierre_body_entered"]
 [connection signal="body_exited" from="ZonePierre" to="." method="_on_zone_pierre_body_exited"]
+
+[editable path="Player"]
