@@ -1,10 +1,5 @@
 extends CanvasLayer
 
-var instance_jeu = null
-
-const LEVEL_1 = preload("res://levels/level_1.tscn")
-const INTRODUCTION = preload("res://scenes/introduction/introduction.tscn")
-
 
 func _on_level_1_button_pressed():
 	get_tree().paused = false

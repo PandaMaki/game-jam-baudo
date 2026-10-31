@@ -24,12 +24,7 @@ func _ready():
 	await changement_et_fondu("Pas grave, mais je vais aller me chercher de \n nouvelles lunettes... Dans la grotte aux lunettes !")
 	await changement_et_fondu("Il faut que je fasse attention...")
 	
-	var chooser_instance = level_chooser_scene.instantiate()
-	get_tree().root.add_child(chooser_instance)
-	get_tree().current_scene = chooser_instance
-	
-	# On supprime la cinématique de la mémoire
-	queue_free()
+	get_tree().change_scene_to_file("res://scenes/UI/level_chooser.tscn")
 	
 func changement_et_fondu(texte):
 	var tween = create_tween()
