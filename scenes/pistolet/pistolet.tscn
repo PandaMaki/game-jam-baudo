@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1uo3u4tubuhk" path="res://scenes/pistolet/pistolet.gd" id="1_np1mu"]
 [ext_resource type="Texture2D" uid="uid://ddj6tieawwk3y" path="res://assets/pistolet/pistolet1.png" id="2_rbpy6"]
-[ext_resource type="AudioStream" uid="uid://dkpkdtk2bvg0o" path="res://sound_effect/501108__evretro__8-bit-gunshot.wav" id="3_rdn78"]
+[ext_resource type="AudioStream" uid="uid://datb6kl6ie4tm" path="res://assets/sounds/laserShoot(1).wav" id="3_rdn78"]
 
 [node name="Pistolet" type="Node2D" unique_id=1604701422]
 script = ExtResource("1_np1mu")

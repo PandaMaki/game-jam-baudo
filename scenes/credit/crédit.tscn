@@ -17,6 +17,7 @@ grow_vertical = 2
 color = Color(0.33835337, 0.22625309, 0.101205565, 1)
 
 [node name="Button" type="Button" parent="." unique_id=1707448121]
+process_mode = 2
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("2_751go")

@@ -148,10 +148,12 @@ limit_bottom = 416
 editor_only = true
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=201769929]
+position = Vector2(0, 8)
 navigation_polygon = SubResource("NavigationPolygon_btoec")
 
 [node name="ennemi" parent="." unique_id=504666815 instance=ExtResource("6_btoec")]
-position = Vector2(665, 212)
+position = Vector2(600, 200)
+scale = Vector2(0.5, 0.5)
 
 [connection signal="mort" from="Player" to="." method="_on_player_mort"]
 [connection signal="sol" from="Player" to="." method="_on_player_sol"]
