@@ -4,6 +4,7 @@ var sous_terre : bool = false
 var can_dig : bool = false
 var under_rock : bool = false
 var point_sonar = 2
+var able = true
 
 @onready var player: player = $Player
 @onready var point_light_2d: PointLight2D = $Player/PointLight2D
@@ -73,3 +74,9 @@ func sonar_zone_activation():
 		await get_tree().create_timer(0.2).timeout
 	if sonar_light.texture_scale == 11 :
 		sonar_light.texture_scale = 1
+
+func _on_zone_sonar_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		if able:
+			point_sonar = 2
+			able = false
