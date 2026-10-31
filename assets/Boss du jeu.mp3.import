@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfofdeo1goi7h"
+path="res://.godot/imported/Boss du jeu.mp3-dc54c22122b12c82e14c3ab5e9b83d01.mp3str"
+
+[deps]
+
+source_file="res://assets/Boss du jeu.mp3"
+dest_files=["res://.godot/imported/Boss du jeu.mp3-dc54c22122b12c82e14c3ab5e9b83d01.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
